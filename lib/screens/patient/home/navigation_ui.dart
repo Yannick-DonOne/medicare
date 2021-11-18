@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:medicare/screens/dashboard/dashboard_screen.dart';
-import 'package:medicare/screens/notifications/notifications_screen.dart';
-import 'package:medicare/screens/profile/profile_screen.dart';
-import 'package:medicare/screens/settings/settings_screen.dart';
-import 'package:medicare/services/data_connectivity_service.dart';
+import 'package:medicare/screens/patient/dashboard/dashboard_screen.dart';
+import 'package:medicare/screens/patient/notifications/notifications_screen.dart';
+import 'package:medicare/screens/patient/profile/profile_screen.dart';
+import 'package:medicare/screens/patient/settings/settings_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/snack_bar.dart';
-import 'package:provider/provider.dart';
 
 import 'drawer/custom_drawer.dart';
 import 'home_screen.dart';
 
-class NavigationUI extends StatefulWidget {
-  static String id = "NavigationUI";
+class PatientNavigationUI extends StatefulWidget {
+  static String id = "PatientNavigationUI";
   @override
-  _NavigationUIState createState() => _NavigationUIState();
+  _PatientNavigationUIState createState() => _PatientNavigationUIState();
 }
 
-class _NavigationUIState extends State<NavigationUI> {
+class _PatientNavigationUIState extends State<PatientNavigationUI> {
   final GlobalKey<RefreshIndicatorState> _refreshIndicator =
       new GlobalKey<RefreshIndicatorState>();
 
   Future _refresh() async {
     setState(() {
-      NavigationUI();
+      PatientNavigationUI();
       CustomSnackBar(
         context,
         Text('Updated successfuly'),
@@ -47,11 +45,11 @@ class _NavigationUIState extends State<NavigationUI> {
   }
 
   List<Widget> _widgetOptions = <Widget>[
-    ProfileScreen(),
-    DashBoardScreen(),
-    HomeScreen(),
-    NotificationsScreen(),
-    SettingScreen(),
+    PatientProfileScreen(),
+    PatientDashBoardScreen(),
+    PatientHomeScreen(),
+    PatientNotificationsScreen(),
+    PatientSettingScreen(),
   ];
 
   @override

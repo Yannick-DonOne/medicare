@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SettingScreen extends StatefulWidget {
+class PatientSettingScreen extends StatefulWidget {
   static String id = 'settings_screen';
 
-  const SettingScreen({Key? key}) : super(key: key);
+  const PatientSettingScreen({Key? key}) : super(key: key);
 
   @override
-  _SettingScreenState createState() => _SettingScreenState();
+  _PatientSettingScreenState createState() => _PatientSettingScreenState();
 }
 
-class _SettingScreenState extends State<SettingScreen> {
+class _PatientSettingScreenState extends State<PatientSettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
