@@ -16,8 +16,6 @@ import 'services/data_connectivity_service.dart';
 
 void main() => runApp(MyApp());
 
-// TODO: generate logo icons.
-// TODO: rename application.
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
