@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/dashboard/dashboard_screen.dart';
-import 'screens/home/home_screen.dart';
-import 'screens/home/navigation_ui.dart';
-import 'screens/notifications/notifications_screen.dart';
-import 'screens/profile/profile_screen.dart';
-import 'screens/settings/settings_screen.dart';
-import 'screens/welcome/onboarding/onboarding_screen.dart';
-import 'screens/welcome/option/option_screen.dart';
-import 'screens/welcome/splash/splash_screen.dart';
+import 'screens/general/onboarding/onboarding_screen.dart';
+import 'screens/general/splash/splash_screen.dart';
+import 'screens/patient/dashboard/dashboard_screen.dart';
+import 'screens/patient/home/home_screen.dart';
+import 'screens/patient/home/navigation_ui.dart';
+import 'screens/patient/notifications/notifications_screen.dart';
+import 'screens/patient/profile/profile_screen.dart';
+import 'screens/patient/settings/settings_screen.dart';
 import 'services/data_connectivity_service.dart';
 
 void main() => runApp(MyApp());
@@ -36,17 +35,17 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "GoogleSans",
           primarySwatch: Colors.red,
         ),
-        home: SplashScreen(),
+        home: PatientNavigationUI(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
-          OptionScreen.id: (context) => OptionScreen(),
-          NavigationUI.id: (context) => NavigationUI(),
-          HomeScreen.id: (context) => HomeScreen(),
-          DashBoardScreen.id: (context) => DashBoardScreen(),
-          NotificationsScreen.id: (context) => NotificationsScreen(),
-          ProfileScreen.id: (context) => ProfileScreen(),
-          SettingScreen.id: (context) => SettingScreen(),
+          PatientNavigationUI.id: (context) => PatientNavigationUI(),
+          PatientHomeScreen.id: (context) => PatientHomeScreen(),
+          PatientDashBoardScreen.id: (context) => PatientDashBoardScreen(),
+          PatientNotificationsScreen.id: (context) =>
+              PatientNotificationsScreen(),
+          PatientProfileScreen.id: (context) => PatientProfileScreen(),
+          PatientSettingScreen.id: (context) => PatientSettingScreen(),
         },
       ),
     );
