@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicare/screens/general/onboarding/onboarding_screen.dart';
+import 'package:medicare/screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
 class SplashScreen extends StatefulWidget {
