@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/dashboard/dashboard_screen.dart';
+import 'screens/home/home_screen.dart';
+import 'screens/home/navigation_ui.dart';
+import 'screens/notifications/notifications_screen.dart';
+import 'screens/profile/profile_screen.dart';
+import 'screens/settings/settings_screen.dart';
 import 'screens/welcome/onboarding/onboarding_screen.dart';
 import 'screens/welcome/splash/splash_screen.dart';
 import 'services/data_connectivity_service.dart';
@@ -29,10 +35,16 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "GoogleSans",
           primarySwatch: Colors.red,
         ),
-        home: SplashScreen(),
+        home: NavigationUI(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
+          NavigationUI.id: (context) => NavigationUI(),
+          HomeScreen.id: (context) => HomeScreen(),
+          DashBoardScreen.id: (context) => DashBoardScreen(),
+          NotificationsScreen.id: (context) => NotificationsScreen(),
+          ProfileScreen.id: (context) => ProfileScreen(),
+          SettingScreen.id: (context) => SettingScreen(),
         },
       ),
     );
