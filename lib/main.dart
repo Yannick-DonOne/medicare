@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'screens/general/onboarding/onboarding_screen.dart';
 import 'screens/general/splash/splash_screen.dart';
+import 'screens/patient/auth/login/patient_login_screen.dart';
+import 'screens/patient/auth/register/patient_register_screen.dart';
 import 'screens/patient/dashboard/dashboard_screen.dart';
 import 'screens/patient/home/home_screen.dart';
 import 'screens/patient/home/navigation_ui.dart';
@@ -35,10 +37,12 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "GoogleSans",
           primarySwatch: Colors.red,
         ),
-        home: PatientNavigationUI(),
+        home: PatientLoginScreen(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
+          PatientLoginScreen.id: (context) => PatientLoginScreen(),
+          PatientRegisterScreen.id: (context) => PatientRegisterScreen(),
           PatientNavigationUI.id: (context) => PatientNavigationUI(),
           PatientHomeScreen.id: (context) => PatientHomeScreen(),
           PatientDashBoardScreen.id: (context) => PatientDashBoardScreen(),
