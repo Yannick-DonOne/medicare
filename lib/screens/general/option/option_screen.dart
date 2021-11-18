@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/screens/patient/auth/register/patient_register_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/custom_button.dart';
 
@@ -40,7 +41,9 @@ class _OptionScreenState extends State<OptionScreen> {
                 gradient: CustomTheme.buttonGradient,
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, PatientRegisterScreen.id);
+                },
                 child: Text(
                   'Patient',
                   style: TextStyle(color: Colors.white),

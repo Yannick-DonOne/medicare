@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/general/onboarding/onboarding_screen.dart';
+import 'screens/general/option/option_screen.dart';
+import 'screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'screens/general/welcome/splash/splash_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
 import 'screens/patient/auth/register/patient_register_screen.dart';
@@ -37,10 +38,11 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "GoogleSans",
           primarySwatch: Colors.red,
         ),
-        home: PatientLoginScreen(),
+        home: SplashScreen(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
+          OptionScreen.id: (context) => OptionScreen(),
           PatientLoginScreen.id: (context) => PatientLoginScreen(),
           PatientRegisterScreen.id: (context) => PatientRegisterScreen(),
           PatientNavigationUI.id: (context) => PatientNavigationUI(),

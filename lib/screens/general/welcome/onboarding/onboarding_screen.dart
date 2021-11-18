@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart' as flutter_svg;
+import 'package:medicare/screens/general/option/option_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
 const List<String> assetNames = <String>[
@@ -249,7 +250,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               width: double.infinity,
               color: Colors.white,
               child: GestureDetector(
-                onTap: () => print('Get started'),
+                onTap: () {
+                  Navigator.pushNamed(context, OptionScreen.id);
+                },
                 child: Center(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 10.0),
