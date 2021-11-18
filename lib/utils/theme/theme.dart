@@ -5,17 +5,19 @@ import 'light_color.dart';
 class AppTheme {
   const AppTheme();
   static ThemeData lightTheme = ThemeData(
-      backgroundColor: LightColor.background,
-      primaryColor: LightColor.purple,
-      cardTheme: CardTheme(color: LightColor.background),
-      // ignore: deprecated_member_use
-      textTheme: TextTheme(display1: TextStyle(color: LightColor.black)),
-      iconTheme: IconThemeData(color: LightColor.iconColor),
-      bottomAppBarColor: LightColor.background,
-      dividerColor: LightColor.grey,
-      primaryTextTheme: TextTheme(
-          // ignore: deprecated_member_use
-          body1: TextStyle(color: LightColor.titleTextColor)));
+    backgroundColor: LightColor.background,
+    primaryColor: LightColor.purple,
+    cardTheme: CardTheme(color: LightColor.background),
+    // ignore: deprecated_member_use
+    // textTheme: TextTheme(display1: TextStyle(color: LightColor.black)),
+    iconTheme: IconThemeData(color: LightColor.iconColor),
+    bottomAppBarColor: LightColor.background,
+    dividerColor: LightColor.grey,
+    primaryTextTheme: TextTheme(
+        // ignore: deprecated_member_use
+        // body1: TextStyle(color: LightColor.titleTextColor),
+        ),
+  );
 
   static TextStyle titleStyle =
       const TextStyle(color: LightColor.titleTextColor, fontSize: 16);
@@ -88,18 +90,24 @@ const Color muted = Color.fromRGBO(136, 152, 170, 1.0);
 const Color text = Color.fromRGBO(50, 50, 93, 1.0);
 
 class CustomTheme {
-  const CustomTheme();
-
-  static Color loginGradientEnd = Color.fromRGBO(50, 75, 205, 1);
-  static Color loginGradientStart = Colors.purple.shade900;
+  static Color loginGradientEnd = primaryColor;
+  static Color loginGradientStart = secondaryColor;
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
 
   static LinearGradient primaryGradient = LinearGradient(
-    colors: <Color>[loginGradientStart, loginGradientEnd],
-    stops: <double>[0.0, 1.0],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
+      colors: <Color>[loginGradientStart, loginGradientEnd],
+      stops: <double>[0.0, 1.0],
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight);
+
+  static Gradient buttonGradient = LinearGradient(
+    colors: [
+      secondaryColor,
+      primaryColor,
+    ],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
   );
 }
 
