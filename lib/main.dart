@@ -8,6 +8,7 @@ import 'screens/notifications/notifications_screen.dart';
 import 'screens/profile/profile_screen.dart';
 import 'screens/settings/settings_screen.dart';
 import 'screens/welcome/onboarding/onboarding_screen.dart';
+import 'screens/welcome/option/option_screen.dart';
 import 'screens/welcome/splash/splash_screen.dart';
 import 'services/data_connectivity_service.dart';
 
@@ -39,6 +40,7 @@ class _MyAppState extends State<MyApp> {
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
+          OptionScreen.id: (context) => OptionScreen(),
           NavigationUI.id: (context) => NavigationUI(),
           HomeScreen.id: (context) => HomeScreen(),
           DashBoardScreen.id: (context) => DashBoardScreen(),
