@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "GoogleSans",
           primarySwatch: Colors.red,
         ),
-        home: NavigationUI(),
+        home: SplashScreen(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
