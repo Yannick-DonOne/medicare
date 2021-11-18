@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class DashBoardScreen extends StatefulWidget {
+class PatientDashBoardScreen extends StatefulWidget {
   static String id = 'dashboard_screen';
-  const DashBoardScreen({Key? key}) : super(key: key);
+  const PatientDashBoardScreen({Key? key}) : super(key: key);
 
   @override
-  _DashBoardScreenState createState() => _DashBoardScreenState();
+  _PatientDashBoardScreenState createState() => _PatientDashBoardScreenState();
 }
 
-class _DashBoardScreenState extends State<DashBoardScreen> {
+class _PatientDashBoardScreenState extends State<PatientDashBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
