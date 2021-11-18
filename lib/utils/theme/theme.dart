@@ -5,17 +5,19 @@ import 'light_color.dart';
 class AppTheme {
   const AppTheme();
   static ThemeData lightTheme = ThemeData(
-      backgroundColor: LightColor.background,
-      primaryColor: LightColor.purple,
-      cardTheme: CardTheme(color: LightColor.background),
-      // ignore: deprecated_member_use
-      textTheme: TextTheme(display1: TextStyle(color: LightColor.black)),
-      iconTheme: IconThemeData(color: LightColor.iconColor),
-      bottomAppBarColor: LightColor.background,
-      dividerColor: LightColor.grey,
-      primaryTextTheme: TextTheme(
-          // ignore: deprecated_member_use
-          body1: TextStyle(color: LightColor.titleTextColor)));
+    backgroundColor: LightColor.background,
+    primaryColor: LightColor.purple,
+    cardTheme: CardTheme(color: LightColor.background),
+    // ignore: deprecated_member_use
+    // textTheme: TextTheme(display1: TextStyle(color: LightColor.black)),
+    iconTheme: IconThemeData(color: LightColor.iconColor),
+    bottomAppBarColor: LightColor.background,
+    dividerColor: LightColor.grey,
+    primaryTextTheme: TextTheme(
+        // ignore: deprecated_member_use
+        // body1: TextStyle(color: LightColor.titleTextColor),
+        ),
+  );
 
   static TextStyle titleStyle =
       const TextStyle(color: LightColor.titleTextColor, fontSize: 16);
