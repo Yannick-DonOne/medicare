@@ -69,7 +69,7 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
   Widget _myWidget() {
     return Scaffold(
         appBar: AppBar(
-          title: Text('App bar title'),
+          title: Text('Medicare'),
         ),
         drawer: CustomDrawer(),
         body: _widgetOptions.elementAt(_selectedIndex),
