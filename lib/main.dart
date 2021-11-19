@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/doctor/auth/login/doctor_login_screen.dart';
 import 'screens/general/option/option_screen.dart';
 import 'screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'screens/general/welcome/splash/splash_screen.dart';
@@ -41,6 +42,8 @@ class _MyAppState extends State<MyApp> {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
           OptionScreen.id: (context) => OptionScreen(),
+
+          // Patient screens.
           PatientLoginScreen.id: (context) => PatientLoginScreen(),
           PatientRegisterScreen.id: (context) => PatientRegisterScreen(),
           PatientNavigationUI.id: (context) => PatientNavigationUI(),
@@ -50,6 +53,9 @@ class _MyAppState extends State<MyApp> {
               PatientNotificationsScreen(),
           PatientProfileScreen.id: (context) => PatientProfileScreen(),
           PatientSettingScreen.id: (context) => PatientSettingScreen(),
+
+          // Doctor screens
+          DoctorLoginScreen.id: (context) => DoctorLoginScreen(),
         },
       ),
     );
