@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/doctor/auth/login/doctor_login_screen.dart';
 import 'screens/general/option/option_screen.dart';
 import 'screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'screens/general/welcome/splash/splash_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
 import 'screens/patient/auth/register/patient_register_screen.dart';
 import 'screens/patient/dashboard/dashboard_screen.dart';
+import 'screens/patient/home/doctor_details/doctor_details.dart';
 import 'screens/patient/home/home_screen.dart';
 import 'screens/patient/home/navigation_ui.dart';
 import 'screens/patient/notifications/notifications_screen.dart';
@@ -41,6 +43,8 @@ class _MyAppState extends State<MyApp> {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
           OptionScreen.id: (context) => OptionScreen(),
+
+          // Patient screens.
           PatientLoginScreen.id: (context) => PatientLoginScreen(),
           PatientRegisterScreen.id: (context) => PatientRegisterScreen(),
           PatientNavigationUI.id: (context) => PatientNavigationUI(),
@@ -50,6 +54,10 @@ class _MyAppState extends State<MyApp> {
               PatientNotificationsScreen(),
           PatientProfileScreen.id: (context) => PatientProfileScreen(),
           PatientSettingScreen.id: (context) => PatientSettingScreen(),
+          // PatientDoctorDetails.id: (context) => PatientDoctorDetails(),
+
+          // Doctor screens
+          DoctorLoginScreen.id: (context) => DoctorLoginScreen(),
         },
       ),
     );

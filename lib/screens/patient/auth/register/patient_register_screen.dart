@@ -23,11 +23,12 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(24.0, 40.0, 24.0, 0),
+          padding: EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,17 +41,31 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                       style: heading2.copyWith(color: textBlack),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: size.height * 0.015,
                     ),
-                    Image.asset(
-                      'assets/images/accent.png',
-                      width: 99,
-                      height: 4,
+                    Container(
+                      width: 150,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            color: primaryColor,
+                            height: 4,
+                            width: 115,
+                          ),
+                          Container(
+                            color: primaryColor,
+                            height: 4,
+                            width: 20,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 48,
+                  height: size.height * 0.035,
                 ),
                 Form(
                   child: Column(
@@ -71,7 +86,7 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 32,
+                        height: size.height * 0.04,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -98,7 +113,7 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 32,
+                        height: size.height * 0.04,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -133,7 +148,7 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 32,
+                  height: size.height * 0.04,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -147,7 +162,11 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                       children: [
                         Text(
                           'By creating an account, you agree to our',
-                          style: regular16pt.copyWith(color: textGrey),
+                          style: TextStyle(
+                            color: textGrey,
+                            fontSize: size.width * 0.041,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                         Text(
                           'Terms & Conditions',
@@ -168,7 +187,7 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                   gradient: CustomTheme.buttonGradient,
                 ),
                 SizedBox(
-                  height: 50,
+                  height: size.height * 0.03,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

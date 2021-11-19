@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/moods.dart';
 
+import 'doctor_details/doctor_details.dart';
+
 class PatientHomeScreen extends StatefulWidget {
   static String id = 'home_screen';
   const PatientHomeScreen({Key? key}) : super(key: key);
@@ -44,11 +46,11 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                       _nextAppointmentText(),
                       _appoinmentCard(),
                       _areaSpecialistsText(),
-                      _specialistsCardInfo(),
-                      _specialistsCardInfo(),
-                      _specialistsCardInfo(),
+                      _doctorCardInfo(),
+                      // _doctorCardInfo(),
+                      // _doctorCardInfo(),
 
-                      //_specialistsCardInfo(),
+                      //_doctorCardInfo(),
                     ],
                   ),
                 ),
@@ -281,7 +283,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
     );
   }
 
-  Widget _specialistsCardInfo() {
+  Widget _doctorCardInfo() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
       margin: EdgeInsets.only(
@@ -358,7 +360,14 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                     height: 6.0,
                   ),
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PatientDoctorDetails(''),
+                        ),
+                      );
+                    },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(80.0)),
                     padding: const EdgeInsets.all(0.0),
@@ -373,11 +382,12 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                             minHeight: 36.0), // min sizes for Material buttons
                         alignment: Alignment.center,
                         child: const Text(
-                          'Book Visit',
+                          'View',
                           style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              color: Colors.white),
+                            fontWeight: FontWeight.w300,
+                            fontSize: 13,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
