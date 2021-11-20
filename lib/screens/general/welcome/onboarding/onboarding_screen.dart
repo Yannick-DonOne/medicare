@@ -35,10 +35,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       margin: EdgeInsets.symmetric(horizontal: 8.0),
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
-      decoration: BoxDecoration(
-        color: isActive ? Colors.white : Color(0xFF7B51D3),
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-      ),
+      decoration: _currentPage <= 1
+          ? BoxDecoration(
+              color: isActive ? whiteColor : grey,
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+            )
+          : BoxDecoration(),
     );
   }
 
@@ -51,34 +53,42 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           value: SystemUiOverlayStyle.light,
           child: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.1, 0.4, 0.7, 0.9],
-                colors: [
-                  Color(0xFF3594DD),
-                  Color(0xFF4563DB),
-                  Color(0xFF5036D5),
-                  Color(0xFF5B16D0),
-                ],
-              ),
+              gradient: CustomTheme.primaryGradient,
             ),
+            padding: EdgeInsets.all(10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () => print('Skip'),
-                    child: Text(
-                      'Skip',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
+                _currentPage <= 1
+                    ? Container(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () => {
+                            _currentPage <= 1
+                                ? _pageController.animateToPage(
+                                    2,
+                                    duration: Duration(milliseconds: 150),
+                                    curve: Curves.easeIn,
+                                  )
+                                : null,
+                          },
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(
+                        child: Text(
+                          '',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
                 Container(
                   height: size.height * (3 / 4),
                   child: PageView(
@@ -87,13 +97,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onPageChanged: (int page) {
                       setState(() {
                         _currentPage = page;
+                        print('current page: $_currentPage');
                       });
                     },
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.0),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Center(
                               child: flutter_svg.SvgPicture.asset(
@@ -105,7 +117,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'CONSULT',
+                              'Title 1',
                               style: TextStyle(
                                 color: whiteColor,
                                 fontWeight: FontWeight.w400,
@@ -129,7 +141,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.0),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Center(
                               child: flutter_svg.SvgPicture.asset(
@@ -141,7 +154,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'CONSULT',
+                              'Title 2',
                               style: TextStyle(
                                 color: whiteColor,
                                 fontWeight: FontWeight.w400,
@@ -165,7 +178,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.0),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Center(
                               child: flutter_svg.SvgPicture.asset(
@@ -177,7 +191,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'CONSULT',
+                              'Title 3',
                               style: TextStyle(
                                 color: whiteColor,
                                 fontWeight: FontWeight.w400,
@@ -246,7 +260,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
       bottomSheet: _currentPage == _numPages - 1
           ? Container(
-              height: size.height * 0.15,
+              height: size.height * 0.09,
               width: double.infinity,
               color: Colors.white,
               child: GestureDetector(

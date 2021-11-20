@@ -8,27 +8,6 @@ class AppointmentHistoryList extends StatefulWidget {
 class _AppointmentHistoryListState extends State<AppointmentHistoryList> {
   Future<void> _getUser() async {}
 
-  // String _dateFormatter(String _timestamp) {
-  // String formattedDate =
-  //     DateFormat('dd-MM-yyyy').format(DateTime.parse(_timestamp));
-  // return formattedDate;
-  // }
-
-  // Future<void> deleteAppointment(String docID) {
-  //   return FirebaseFirestore.instance
-  //       .collection('appointments')
-  //       .doc(user.email.toString())
-  //       .collection('all')
-  //       .doc(docID)
-  //       .delete();
-  // }
-
-  // String _timeFormatter(String _timestamp) {
-  //   String formattedTime =
-  //       DateFormat('kk:mm').format(DateTime.parse(_timestamp));
-  //   return formattedTime;
-  // }
-
   @override
   void initState() {
     super.initState();
@@ -78,20 +57,22 @@ class _AppointmentHistoryListState extends State<AppointmentHistoryList> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "document['doctor']",
+                          "Yannick DonOne",
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "_dateFormatter(document['date'].toDate().toString())",
+                          "Tooth ache",
+                          style: TextStyle(
+                              fontSize: 13, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          DateTime.now().toString(),
                           style: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
                   ),
                 ],
               );

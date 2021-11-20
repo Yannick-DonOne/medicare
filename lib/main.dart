@@ -8,7 +8,6 @@ import 'screens/general/welcome/splash/splash_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
 import 'screens/patient/auth/register/patient_register_screen.dart';
 import 'screens/patient/dashboard/dashboard_screen.dart';
-import 'screens/patient/home/doctor_details/doctor_details.dart';
 import 'screens/patient/home/home_screen.dart';
 import 'screens/patient/home/navigation_ui.dart';
 import 'screens/patient/notifications/notifications_screen.dart';
