@@ -70,8 +70,11 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Medicare'),
+          centerTitle: true,
+          leading: Container(),
+          backgroundColor: primaryColor,
         ),
-        drawer: CustomDrawer(),
+        // drawer: CustomDrawer(),
         body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: true,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/screens/patient/appointments/appointmentHistoryList.dart';
+import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
 class PatientProfileScreen extends StatefulWidget {
@@ -161,52 +162,53 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
             ],
           ),
         ),
-        Container(
-          margin: EdgeInsets.only(left: 15, right: 15, top: 20),
-          padding: EdgeInsets.all(8),
-          // height: MediaQuery.of(context).size.height / 7,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.blueGrey[50],
-          ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: Container(
-                      height: 27,
-                      width: 27,
-                      color: primaryColor,
-                      child: Icon(
-                        Icons.edit,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Bio',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                padding: EdgeInsets.only(left: 38, bottom: 10),
-                child: getBio(),
-              )
-            ],
-          ),
-        ),
+        // Container(
+        //   margin: EdgeInsets.only(left: 15, right: 15, top: 20),
+        //   padding: EdgeInsets.all(8),
+        //   // height: MediaQuery.of(context).size.height / 7,
+        //   width: MediaQuery.of(context).size.width,
+        //   decoration: BoxDecoration(
+        //     borderRadius: BorderRadius.circular(10),
+        //     color: Colors.blueGrey[50],
+        //   ),
+        //   child: Column(
+        //     children: [
+        //       Row(
+        //         children: [
+        //           ClipRRect(
+        //             borderRadius: BorderRadius.circular(30),
+        //             child: Container(
+        //               height: 27,
+        //               width: 27,
+        //               color: primaryColor,
+        //               child: Icon(
+        //                 Icons.edit,
+        //                 color: Colors.white,
+        //                 size: 16,
+        //               ),
+        //             ),
+        //           ),
+        //           SizedBox(
+        //             width: 8,
+        //           ),
+        //           Text(
+        //             'Bio',
+        //             style: TextStyle(
+        //               fontSize: 16,
+        //               fontWeight: FontWeight.bold,
+        //               color: Colors.black,
+        //             ),
+        //           ),
+        //         ],
+        //       ),
+        //       Container(
+        //         padding: EdgeInsets.only(left: 38, bottom: 10),
+        //         child: getBio(),
+        //       )
+        //     ],
+        //   ),
+        // ),
+
         Container(
           margin: EdgeInsets.only(left: 15, right: 15, top: 20),
           padding: EdgeInsets.only(left: 20, top: 20, bottom: 20),
@@ -250,7 +252,14 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
                       child: SizedBox(
                         height: 30,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    PatientAppointmentList(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'View all',
                             style: TextStyle(
