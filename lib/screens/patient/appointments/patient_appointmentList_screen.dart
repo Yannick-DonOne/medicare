@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/utils/theme/theme.dart';
 
 class PatientAppointmentList extends StatefulWidget {
   @override
@@ -55,25 +56,6 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
     );
   }
 
-  _checkDiff(DateTime _date) {
-    var diff = DateTime.now().difference(_date).inHours;
-    if (diff > 2) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  _compareDate(String _date) {
-    // if (_dateFormatter(DateTime.now().toString())
-    //         .compareTo(_dateFormatter(_date)) ==
-    //     0) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
-  }
-
   @override
   void initState() {
     super.initState();
@@ -82,24 +64,12 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: bgColorScreen,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Container(
-          alignment: Alignment.center,
-          // padding: EdgeInsets.symmetric(vertical: 10),
-          child: Text(
-            'My Appointments',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: primaryColor,
+        title: Text('Appointments'),
       ),
       body: Container(
-        padding: EdgeInsets.only(right: 10, left: 10, top: 10),
         child: FutureBuilder(
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             // if (!snapshot.hasData) {
