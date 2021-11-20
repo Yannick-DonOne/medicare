@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/screens/patient/appointments/appointmentHistoryList.dart';
+import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
 class PatientProfileScreen extends StatefulWidget {
@@ -251,7 +252,14 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
                       child: SizedBox(
                         height: 30,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    PatientAppointmentList(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'View all',
                             style: TextStyle(
