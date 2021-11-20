@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
-import '../../../utils/widgets/defaultAppBar.dart';
-
 class NotificationPage extends StatefulWidget {
   @override
   _NotificationPageState createState() => _NotificationPageState();
@@ -13,9 +11,9 @@ class _NotificationPageState extends State<NotificationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColorScreen,
-      appBar: DefaultAppBar(
-        title: 'Notification',
-        child: Container(),
+      appBar: AppBar(
+        title: Text('Notification'),
+        backgroundColor: primaryColor,
       ),
       body: FittedBox(
         child: Container(

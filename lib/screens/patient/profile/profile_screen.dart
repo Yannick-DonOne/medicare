@@ -253,7 +253,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
                         height: 30,
                         child: TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
+                            Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) =>
                                     PatientAppointmentList(),

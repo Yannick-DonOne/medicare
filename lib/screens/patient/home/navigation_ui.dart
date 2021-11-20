@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:medicare/screens/patient/dashboard/dashboard_screen.dart';
@@ -7,7 +8,6 @@ import 'package:medicare/screens/patient/settings/settings_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/snack_bar.dart';
 
-import 'drawer/custom_drawer.dart';
 import 'home_screen.dart';
 
 class PatientNavigationUI extends StatefulWidget {
