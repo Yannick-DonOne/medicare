@@ -177,7 +177,7 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                         Text(
                           'By creating an account, you agree to our',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: size.width * 0.046,
                             fontWeight: FontWeight.w400,
                             color: textGrey,
                           ),
@@ -197,12 +197,14 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                 SizedBox(
                   height: 32,
                 ),
-                CustomButton(
-                  child: Text('Register'),
-                  onPressed: () {
-                    Navigator.pushNamed(context, PatientNavigationUI.id);
-                  },
-                  gradient: CustomTheme.buttonGradient,
+                Align(
+                  child: CustomButton(
+                    child: Text('Register'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, PatientNavigationUI.id);
+                    },
+                    gradient: CustomTheme.buttonGradient,
+                  ),
                 ),
                 SizedBox(
                   height: size.height * 0.03,
