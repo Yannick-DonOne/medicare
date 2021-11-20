@@ -13,14 +13,6 @@ class PatientDoctorDetails extends StatefulWidget {
 }
 
 class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
-  _launchCaller(String url) async {
-    // if (await canLaunch(url)) {
-    //   await launch(url);
-    // } else {
-    //   throw 'Could not launch $url';
-    // }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +67,13 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                         ),
                         Text(
                           "Pediatritian",
+                          style: TextStyle(fontSize: 18, color: Colors.black54),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "General Hospital",
                           style: TextStyle(fontSize: 18, color: Colors.black54),
                         ),
                         SizedBox(
