@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/utils/theme/theme.dart';
+import 'package:medicare/utils/widgets/custom_button.dart';
 import 'package:medicare/utils/widgets/moods.dart';
+import 'package:medicare/utils/widgets/see_all.dart';
 
 import 'doctor_details/doctor_details.dart';
 
@@ -48,10 +50,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                       _appoinmentCard(),
                       _areaSpecialistsText(),
                       _doctorCardInfo(),
-                      // _doctorCardInfo(),
-                      // _doctorCardInfo(),
-
-                      //_doctorCardInfo(),
+                      _doctorCardInfo(),
                     ],
                   ),
                 ),
@@ -77,14 +76,9 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
               color: Colors.black,
             ),
           ),
-          Text(
-            'See All',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: primaryColor,
-            ),
-          ),
+          SeeAll(
+            onTap: () {},
+          )
         ],
       ),
     );
@@ -268,36 +262,29 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            'Specialist In Your Area',
+            'Specialist Near You',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),
           ),
-          Text(
-            'See All',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: primaryColor,
-            ),
-          ),
+          SeeAll(
+            onTap: () {},
+          )
         ],
       ),
     );
   }
 
   Widget _doctorCardInfo() {
-    Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(
-          vertical: size.width * 0.02, horizontal: size.width * 0.025),
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       margin: EdgeInsets.only(
         bottom: 20.0,
       ),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: whiteColor,
           borderRadius: BorderRadius.circular(12.0),
           boxShadow: [
             BoxShadow(
@@ -363,11 +350,11 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 6.0,
-                  ),
-                  RaisedButton(
+                  CustomButton(
+                    child: Text('View'),
+                    gradient: CustomTheme.buttonGradient,
                     onPressed: () {
+                      // TODO: navigate to doctor detail screen pass doctor info
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -375,29 +362,6 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                         ),
                       );
                     },
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(80.0)),
-                    padding: const EdgeInsets.all(0.0),
-                    child: Ink(
-                      decoration: const BoxDecoration(
-                        // gradient: CustomTheme.primaryGradient,
-                        borderRadius: BorderRadius.all(Radius.circular(80.0)),
-                      ),
-                      child: Container(
-                        constraints: const BoxConstraints(
-                            minWidth: 88.0,
-                            minHeight: 36.0), // min sizes for Material buttons
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'View',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 13,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),
@@ -405,8 +369,8 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
           ),
           Icon(
             Icons.medical_services, // TODO use heart icon here
-            color: whiteColor,
-            size: 36,
+            color: primaryColor,
+            size: 25,
           ),
         ],
       ),
