@@ -8,15 +8,10 @@ class AppTheme {
     backgroundColor: LightColor.background,
     primaryColor: LightColor.purple,
     cardTheme: CardTheme(color: LightColor.background),
-    // ignore: deprecated_member_use
-    // textTheme: TextTheme(display1: TextStyle(color: LightColor.black)),
     iconTheme: IconThemeData(color: LightColor.iconColor),
     bottomAppBarColor: LightColor.background,
     dividerColor: LightColor.grey,
-    primaryTextTheme: TextTheme(
-        // ignore: deprecated_member_use
-        // body1: TextStyle(color: LightColor.titleTextColor),
-        ),
+    primaryTextTheme: TextTheme(),
   );
 
   static TextStyle titleStyle =
@@ -137,3 +132,6 @@ const kTextColor = Color(0XFF364861);
 const kTextLightColor = Color(0XFF374457);
 const kIndicatorColor = Color(0XFFCBCCD5);
 const kBackgroundColor = Color(0XFFF6F8FF);
+Color textBlack = Color(0xff222222);
+Color textGrey = Color(0xff94959b);
+Color textWhiteGrey = Color(0xfff1f1f5);

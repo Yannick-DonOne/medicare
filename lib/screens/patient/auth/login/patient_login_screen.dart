@@ -3,7 +3,6 @@ import 'package:medicare/screens/patient/auth/register/patient_register_screen.d
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/custom_button.dart';
 import 'package:medicare/utils/widgets/custom_checkbox.dart';
-import '../register/theme.dart';
 
 class PatientLoginScreen extends StatefulWidget {
   static String id = "patient_login_screen";
@@ -36,8 +35,11 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                   children: [
                     Text(
                       'Login to your\naccount',
-                      style: heading2.copyWith(color: textBlack),
-                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: textBlack,
+                      ),
                     ),
                     SizedBox(
                       height: size.height * 0.015,
@@ -77,7 +79,11 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: 'Email',
-                            hintStyle: heading6.copyWith(color: textGrey),
+                            hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: textGrey,
+                            ),
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
                             ),
@@ -96,7 +102,11 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                           obscureText: !passwordVisible,
                           decoration: InputDecoration(
                             hintText: 'Password',
-                            hintStyle: heading6.copyWith(color: textGrey),
+                            hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: textGrey,
+                            ),
                             suffixIcon: IconButton(
                               color: textGrey,
                               splashRadius: 1,
@@ -124,7 +134,13 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                     SizedBox(
                       width: 12,
                     ),
-                    Text('Remember me', style: regular16pt),
+                    Text(
+                      'Remember me',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -146,7 +162,11 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                   children: [
                     Text(
                       "Don't have an account? ",
-                      style: regular16pt.copyWith(color: textGrey),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: textGrey,
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -157,7 +177,11 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                       },
                       child: Text(
                         'Register',
-                        style: regular16pt.copyWith(color: primaryBlue),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: primaryColor,
+                        ),
                       ),
                     ),
                   ],

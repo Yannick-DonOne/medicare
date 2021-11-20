@@ -27,48 +27,51 @@ class _SplashScreenState extends State<SplashScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
-            top: size.height * (1 / 6),
             bottom: size.height * (1 / 32),
-            left: 0,
-            right: 0,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 70,
-                    backgroundColor: primaryColor,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      style: TextStyle(
-                          fontSize: 30.0, fontWeight: FontWeight.bold),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'MEDI',
-                          style: TextStyle(color: primaryColor),
+              Expanded(
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/logo.png',
+                        height: 150,
+                        width: 150,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: TextStyle(
+                              fontSize: 30.0, fontWeight: FontWeight.bold),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'MEDI',
+                              style: TextStyle(color: primaryColor),
+                            ),
+                            TextSpan(
+                              text: 'CARE',
+                              style: TextStyle(color: initial),
+                            ),
+                          ],
                         ),
-                        TextSpan(
-                          text: 'CARE',
-                          style: TextStyle(color: initial),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                      )
+                    ],
+                  ),
+                ),
               ),
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                   children: <TextSpan>[
                     TextSpan(
                       text: 'Powered by: \n',

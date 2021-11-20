@@ -4,7 +4,6 @@ import 'package:medicare/screens/patient/home/navigation_ui.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/custom_button.dart';
 import 'package:medicare/utils/widgets/custom_checkbox.dart';
-import 'theme.dart';
 
 class PatientRegisterScreen extends StatefulWidget {
   static String id = "patient_register_screen";
@@ -38,7 +37,10 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                   children: [
                     Text(
                       'Register new\naccount',
-                      style: heading2.copyWith(color: textBlack),
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          color: black),
                     ),
                     SizedBox(
                       height: size.height * 0.015,
@@ -78,7 +80,11 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: 'Email',
-                            hintStyle: heading6.copyWith(color: textGrey),
+                            hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: textGrey,
+                            ),
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
                             ),
@@ -97,7 +103,11 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                           obscureText: !passwordVisible,
                           decoration: InputDecoration(
                             hintText: 'Password',
-                            hintStyle: heading6.copyWith(color: textGrey),
+                            hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: textGrey,
+                            ),
                             suffixIcon: IconButton(
                               color: textGrey,
                               splashRadius: 1,
@@ -124,7 +134,11 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                           obscureText: !passwordConfrimationVisible,
                           decoration: InputDecoration(
                             hintText: 'Password Confirmation',
-                            hintStyle: heading6.copyWith(color: textGrey),
+                            hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: textGrey,
+                            ),
                             suffixIcon: IconButton(
                               color: textGrey,
                               splashRadius: 1,
@@ -163,14 +177,18 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                         Text(
                           'By creating an account, you agree to our',
                           style: TextStyle(
-                            color: textGrey,
-                            fontSize: size.width * 0.041,
+                            fontSize: 16,
                             fontWeight: FontWeight.w400,
+                            color: textGrey,
                           ),
                         ),
                         Text(
                           'Terms & Conditions',
-                          style: regular16pt.copyWith(color: primaryBlue),
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: primaryColor,
+                          ),
                         ),
                       ],
                     ),
@@ -194,7 +212,11 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                   children: [
                     Text(
                       "Already have an account? ",
-                      style: regular16pt.copyWith(color: textGrey),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: textGrey,
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -202,7 +224,11 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
                       },
                       child: Text(
                         'Login',
-                        style: regular16pt.copyWith(color: primaryBlue),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: primaryColor,
+                        ),
                       ),
                     ),
                   ],
