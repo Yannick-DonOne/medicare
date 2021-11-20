@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:medicare/utils/theme/theme.dart';
+import 'package:medicare/utils/widgets/custom_button.dart';
 
 class PatientDoctorDetails extends StatefulWidget {
   static String id = 'patient_doctor_details';
@@ -22,7 +24,10 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: bgColorScreen,
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+      ),
       body: SafeArea(
         child: FutureBuilder(
           builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -45,32 +50,21 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                     margin: EdgeInsets.only(top: 5),
                     child: Column(
                       children: <Widget>[
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          height: 50,
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.only(left: 5),
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.chevron_left_sharp,
-                              color: Colors.indigo,
-                              size: 30,
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                        ),
                         CircleAvatar(
-                          backgroundImage: NetworkImage("document['image']"),
-                          //backgroundColor: Colors.lightBlue[100],
-                          radius: 80,
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            height: 140,
+                            width: 140,
+                            fit: BoxFit.cover,
+                          ),
+                          backgroundColor: transparentColor,
+                          radius: 90,
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
-                          "document['name']",
+                          "Summit Tech",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
@@ -80,11 +74,8 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                           height: 10,
                         ),
                         Text(
-                          "document['type']",
-                          style: TextStyle(
-                              //fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.black54),
+                          "Pediatritian",
+                          style: TextStyle(fontSize: 18, color: Colors.black54),
                         ),
                         SizedBox(
                           height: 16,
@@ -93,37 +84,24 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // for (var i = 0; i < document['rating']; i++)
-                            Icon(
-                              Icons.star_rounded,
-                              color: Colors.indigoAccent,
-                              size: 30,
-                            ),
-                            // if (5 - document['rating'] > 0)
-                            //   for (var i = 0; i < 5 - document['rating']; i++)
-                            //     Icon(
-                            //       Icons.star_rounded,
-                            //       color: Colors.black12,
-                            //       size: 30,
-                            //     ),
+
+                            for (var i = 0; i < 3; i++)
+                              Icon(
+                                Icons.star_rounded,
+                                color: Colors.indigoAccent,
+                                size: 30,
+                              ),
+                            if (5 - 3 > 0)
+                              for (var i = 0; i < 5 - 3; i++)
+                                Icon(
+                                  Icons.star_rounded,
+                                  color: Colors.black12,
+                                  size: 30,
+                                ),
                           ],
                         ),
                         SizedBox(
                           height: 14,
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 22, right: 22),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "document['specification']",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black54,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
@@ -142,7 +120,7 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                               Container(
                                 width: MediaQuery.of(context).size.width / 1.4,
                                 child: Text(
-                                  "document['address']",
+                                  "Buea, Cameroon",
                                   style: TextStyle(
                                     fontSize: 16,
                                   ),
@@ -154,36 +132,34 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                             ],
                           ),
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height / 12,
-                          margin: EdgeInsets.symmetric(horizontal: 10),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Icon(Icons.phone),
-                              SizedBox(
-                                width: 11,
-                              ),
-                              TextButton(
-                                onPressed: () =>
-                                    _launchCaller("tel:" + "document['phone']"),
-                                child: Text(
-                                  "document['phone']".toString(),
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.blue),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 0,
-                        ),
+                        // Container(
+                        //   height: MediaQuery.of(context).size.height / 12,
+                        //   margin: EdgeInsets.symmetric(horizontal: 10),
+                        //   child: Row(
+                        //     children: [
+                        //       SizedBox(
+                        //         width: 15,
+                        //       ),
+                        //       Icon(Icons.phone),
+                        //       SizedBox(
+                        //         width: 11,
+                        //       ),
+                        //       TextButton(
+                        //         onPressed: () =>
+                        //             _launchCaller("tel:" + "document['phone']"),
+                        //         child: Text(
+                        //           "document['phone']".toString(),
+                        //           style: TextStyle(
+                        //               fontSize: 16, color: Colors.blue),
+                        //         ),
+                        //       ),
+                        //       SizedBox(
+                        //         width: 10,
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+
                         Container(
                           margin: EdgeInsets.symmetric(horizontal: 10),
                           child: Row(
@@ -223,9 +199,7 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                                 width: 10,
                               ),
                               Text(
-                                "document['openHour']" +
-                                    " - " +
-                                    "document['closeHour']",
+                                "9:00 am" + " - " + "7:00 pm",
                                 style: TextStyle(
                                   fontSize: 17,
                                 ),
@@ -236,41 +210,12 @@ class _PatientDoctorDetailsState extends State<PatientDoctorDetails> {
                         SizedBox(
                           height: 50,
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          height: 50,
-                          width: MediaQuery.of(context).size.width,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              elevation: 2,
-                              primary: Colors.indigo.withOpacity(0.9),
-                              onPrimary: Colors.black,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(32.0),
-                              ),
-                            ),
-                            onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => BookingScreen(
-                              //       doctor: document['name'],
-                              //     ),
-                              //   ),
-                              // );
-                            },
-                            child: Text(
-                              'Book an Appointment',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 40,
+                        CustomButton(
+                          child: Text('Book an Appointment'),
+                          gradient: CustomTheme.buttonGradient,
+                          onPressed: () {
+                            // TODO: navigate to book appointment screen
+                          },
                         ),
                       ],
                     ),
