@@ -1,8 +1,8 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:medicare/screens/doctor/chat/chats.dart';
 import 'package:medicare/screens/doctor/settings/doctor_settings_screen.dart';
-import 'package:medicare/screens/patient/dashboard/dashboard_screen.dart';
 import 'package:medicare/screens/patient/notifications/notifications_screen.dart';
 import 'package:medicare/screens/patient/profile/profile_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
@@ -31,7 +31,7 @@ class _DoctorNavigationUIState extends State<DoctorNavigationUI> {
     });
   }
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -46,7 +46,7 @@ class _DoctorNavigationUIState extends State<DoctorNavigationUI> {
 
   List<Widget> _widgetOptions = <Widget>[
     PatientProfileScreen(),
-    PatientDashBoardScreen(),
+    DoctorChats(),
     DoctorHomeScreen(),
     PatientNotificationsScreen(),
     DoctorSettingScreen(),
@@ -69,7 +69,14 @@ class _DoctorNavigationUIState extends State<DoctorNavigationUI> {
   Widget _myWidget() {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Medicare'),
+          title: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width * 0.11),
+              Image.asset('assets/images/logo.png', height: 45, width: 50),
+              Text('Medicare'),
+            ],
+          ),
           centerTitle: true,
           leading: Container(),
           backgroundColor: primaryColor,
@@ -86,9 +93,9 @@ class _DoctorNavigationUIState extends State<DoctorNavigationUI> {
               title: Text('Profile'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
+              icon: Icon(Icons.chat_rounded),
               // ignore: deprecated_member_use
-              title: Text('Dashboard'),
+              title: Text('Chats'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
