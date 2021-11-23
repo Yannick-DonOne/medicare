@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:medicare/screens/doctor/chat/chats.dart';
+import 'package:medicare/screens/doctor/notifications/notifications_screen.dart';
 import 'package:medicare/screens/doctor/settings/doctor_settings_screen.dart';
-import 'package:medicare/screens/patient/notifications/notifications_screen.dart';
 import 'package:medicare/screens/patient/profile/profile_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/snack_bar.dart';
@@ -48,7 +48,7 @@ class _DoctorNavigationUIState extends State<DoctorNavigationUI> {
     PatientProfileScreen(),
     DoctorChats(),
     DoctorHomeScreen(),
-    PatientNotificationsScreen(),
+    DoctorNotificationsScreen(),
     DoctorSettingScreen(),
   ];
 
