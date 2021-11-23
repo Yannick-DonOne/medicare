@@ -259,14 +259,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ),
       bottomSheet: _currentPage == _numPages - 1
-          ? Container(
-              height: size.height * 0.09,
-              width: double.infinity,
-              color: Colors.white,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, OptionScreen.id);
-                },
+          ? GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, OptionScreen.id);
+              },
+              child: Container(
+                height: size.height * 0.09,
+                width: double.infinity,
+                color: Colors.white,
                 child: Center(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 10.0),

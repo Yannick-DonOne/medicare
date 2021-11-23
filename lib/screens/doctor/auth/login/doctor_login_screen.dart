@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/screens/doctor/home/doctor_navigation_ui.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/custom_button.dart';
-import 'dart:convert';
+
+import 'package:medicare/utils/widgets/snack_bar.dart';
 
 class DoctorLoginScreen extends StatefulWidget {
   static String id = 'doctor_login_screen';
@@ -17,161 +19,136 @@ class DoctorLoginScreen extends StatefulWidget {
 class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
   @override
   void initState() {
-//     autoAuthenticate();
     super.initState();
+  }
+
+  bool passwordVisible = false;
+
+  void togglePassword() {
+    setState(() {
+      passwordVisible = !passwordVisible;
+    });
   }
 
   final GlobalKey<FormState> formKey = GlobalKey();
 
-  late String email;
-  late String password;
-  Map<String, dynamic> errorMessage = {};
-  String error = '';
-  late String token;
-  late String message;
-  bool showSpinner = false;
+  TextEditingController doctorID = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   void submitForm() async {
-    setState(() {
-      showSpinner = true;
-    });
-
-    // if (!formKey.currentState.validate()) {
-    //   setState(() {
-    //     showSpinner = false;
-    //   });
-    //   return;
-    // }
-    // formKey.currentState.save();
-
-    errorMessage = await login();
-
-    if (!errorMessage['success']) {
-      setState(() {
-        error = 'invalid credentials';
-      });
+    if (doctorID.text.isEmpty && password.text.isEmpty) {
+      CustomSnackBar(
+        context,
+        Text('Fields are required'),
+        backgroundColor: error,
+      );
+    } else if (doctorID.text.isEmpty) {
+      CustomSnackBar(
+        context,
+        Text('Doctor ID is required'),
+        backgroundColor: error,
+      );
+    } else if (password.text.isEmpty) {
+      CustomSnackBar(
+        context,
+        Text('Password is required'),
+        backgroundColor: error,
+      );
+    } else if (doctorID.text.length < 8) {
+      CustomSnackBar(
+        context,
+        Text('At least 8 digits ID is required'),
+        backgroundColor: error,
+      );
+    } else if (password.text.length < 8) {
+      CustomSnackBar(
+        context,
+        Text('At least 8 digits Password is required'),
+        backgroundColor: error,
+      );
+    } else {
+      Navigator.pushNamed(context, DoctorNavigationUI.id);
+      CustomSnackBar(
+        context,
+        Text('Welcome to Medicare'),
+        backgroundColor: success,
+      );
     }
-
-    if (errorMessage['message'] == 'Authentication succeeded') {
-      // Navigator.of(context).pushReplacement(
-      //   MaterialPageRoute(
-      //     builder: (BuildContext context) => Account(),
-      //   ),
-      // );
-
-      setState(() {
-        showSpinner = false;
-      });
-    }
-  }
-
-  Future getUser() async {}
-  Future<Map<String, dynamic>> login() async {
-//    try {
-//      final result = await InternetAddress.lookup('google.com');
-//      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-//        print('connected');
-//      }
-//    } on SocketException catch (_) {
-//      setState(() {
-//        showSpinner = false;
-//        error = 'No connection';
-//      });
-//    }
-
-    final Map<String, dynamic> data = {
-      'grant_type': 'password',
-      'client_id': 2,
-      // 'client_secret': '$clientSecret',
-      'username': '$email',
-      'password': '$password',
-      'provider': 'doctors'
-    };
-    print(json.encode(data));
-    // final http.Response response = await http.post('$remoteUrl/oauth/token',
-    //     body: json.encode(data), headers: {'Content-Type': 'application/json'});
-
-    // final Map<String, dynamic> responseData = json.decode(response.body);
-    // print(responseData);
-    bool hasError = true;
-//    String message = 'Something went wrong';
-    // if (responseData.containsKey('access_token')) {
-    //   hasError = false;
-    //   message = 'Authentication succeeded';
-    //   final SharedPreferences prefs = await SharedPreferences.getInstance();
-    //   prefs.setString('token', responseData['access_token']);
-
-    //   setState(() {
-    //     token = responseData['access_token'];
-    //   });
-    // } else if (responseData['error'] == 'invalid_credentials') {
-    //   message = 'Invalid credentials';
-    //   setState(() {
-    //     showSpinner = false;
-    //   });
-    // }
-    return {'success': !hasError, 'message': message};
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Column(
-              children: <Widget>[
-//                  CircleAvatar(child: Image.network('https://cdn2.vectorstock.com/i/1000x1000/36/61/doctor-logo-icon-design-vector-15613661.jpg', height: 200,),),
-                Center(
-                  child: Text(
-                    "widget.message != null ? widget.message : " "",
-                    style:
-                        TextStyle(fontSize: 20, color: Colors.lightBlueAccent),
+            Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/logo.png',
+                    // height: 200,
+                    // width: 200,
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                )
-              ],
+                  Text(
+                    "Medicare",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: primaryColor,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Text(
+                    "Welcome",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: primaryColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Form(
               key: formKey,
               child: Column(
                 children: <Widget>[
                   TextFormField(
+                    controller: doctorID,
+                    autofocus: false,
+                    obscureText: !passwordVisible,
                     decoration: InputDecoration(
-                      hintText: 'Enter your email',
+                      hintText: 'Enter Doctor ID',
                       contentPadding: EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 20.0),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(32.0)),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.lightBlueAccent, width: 1.0),
+                        borderSide: BorderSide(color: primaryColor, width: 1.0),
                         borderRadius: BorderRadius.all(Radius.circular(32.0)),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.lightBlueAccent, width: 2.0),
+                        borderSide: BorderSide(color: primaryColor, width: 2.0),
                         borderRadius: BorderRadius.all(Radius.circular(32.0)),
                       ),
                     ),
-                    // onSaved: (String value) {
-                    //   // setState(() {
-                    //   //   email = value;
-                    //   // });
+                    // onSaved: (String? value) {
+                    //   setState(() {
+                    //     doctorID = value;
+                    //   });
                     // },
-                    // validator: (String value) {
-                    //   if (value.isEmpty) {
-                    //     return 'The email field is required';
-                    //   }
-                    // },
+                    validator: (value) =>
+                        value!.isEmpty ? "Please enter ID" : null,
                   ),
                   SizedBox(height: 20),
                   TextFormField(
+                    controller: password,
                     decoration: InputDecoration(
                       hintText: 'Enter your password',
                       contentPadding: EdgeInsets.symmetric(
@@ -180,14 +157,20 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(32.0)),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.lightBlueAccent, width: 1.0),
+                        borderSide: BorderSide(color: primaryColor, width: 1.0),
                         borderRadius: BorderRadius.all(Radius.circular(32.0)),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.lightBlueAccent, width: 2.0),
+                        borderSide: BorderSide(color: primaryColor, width: 2.0),
                         borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                      ),
+                      suffixIcon: IconButton(
+                        color: textGrey,
+                        splashRadius: 1,
+                        icon: Icon(passwordVisible
+                            ? Icons.visibility_outlined
+                            : Icons.visibility_off_outlined),
+                        onPressed: togglePassword,
                       ),
                     ),
                     obscureText: true,
@@ -196,43 +179,19 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                     //     password = value;
                     //   });
                     // },
-                    // validator: (String value) {
-                    //   if (value.isEmpty) {
-                    //     return 'The password field is required';
-                    //   }
-                    // },
+                    validator: (value) =>
+                        value!.isEmpty ? "Please enter password" : null,
                   ),
                   SizedBox(
                     height: 5,
                   ),
-                  Text(
-                    error,
-                    style: TextStyle(color: Colors.red),
-                  ),
-                  Container(
-                    child: FlatButton(
-                      onPressed: null,
-                      child: Text('Forgot Password ?'),
-                    ),
-                  ),
                   CustomButton(
                     child: Text('Login'),
                     gradient: CustomTheme.buttonGradient,
-                    onPressed: submitForm,
+                    onPressed: () => submitForm(),
                   ),
                 ],
               ),
-            ),
-            Container(
-              child: FlatButton(
-                onPressed: null,
-                child: Text('OR'),
-              ),
-            ),
-            CustomButton(
-              child: Text('Register'),
-              gradient: CustomTheme.buttonGradient,
-              onPressed: () {},
             ),
           ],
         ),

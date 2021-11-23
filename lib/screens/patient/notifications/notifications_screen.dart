@@ -19,10 +19,6 @@ class _PatientNotificationsScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColorScreen,
-      // appBar: DefaultAppBar(
-      //   title: 'Notifications',
-      //   child: DefaultBackButton(),
-      // ),
       body: ListView.separated(
           physics: ClampingScrollPhysics(),
           padding: EdgeInsets.zero,

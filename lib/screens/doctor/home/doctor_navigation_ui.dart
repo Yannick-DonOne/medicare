@@ -1,28 +1,28 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:medicare/screens/doctor/settings/doctor_settings_screen.dart';
 import 'package:medicare/screens/patient/dashboard/dashboard_screen.dart';
 import 'package:medicare/screens/patient/notifications/notifications_screen.dart';
 import 'package:medicare/screens/patient/profile/profile_screen.dart';
-import 'package:medicare/screens/patient/settings/settings_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/snack_bar.dart';
 
-import 'home_screen.dart';
+import 'doctor_home_screen.dart';
 
-class PatientNavigationUI extends StatefulWidget {
-  static String id = "PatientNavigationUI";
+class DoctorNavigationUI extends StatefulWidget {
+  static String id = "DoctorNavigationUI";
   @override
-  _PatientNavigationUIState createState() => _PatientNavigationUIState();
+  _DoctorNavigationUIState createState() => _DoctorNavigationUIState();
 }
 
-class _PatientNavigationUIState extends State<PatientNavigationUI> {
+class _DoctorNavigationUIState extends State<DoctorNavigationUI> {
   final GlobalKey<RefreshIndicatorState> _refreshIndicator =
       new GlobalKey<RefreshIndicatorState>();
 
   Future _refresh() async {
     setState(() {
-      PatientNavigationUI();
+      DoctorNavigationUI();
       CustomSnackBar(
         context,
         Text('Updated successfuly'),
@@ -47,9 +47,9 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
   List<Widget> _widgetOptions = <Widget>[
     PatientProfileScreen(),
     PatientDashBoardScreen(),
-    PatientHomeScreen(),
+    DoctorHomeScreen(),
     PatientNotificationsScreen(),
-    PatientSettingScreen(),
+    DoctorSettingScreen(),
   ];
 
   @override
