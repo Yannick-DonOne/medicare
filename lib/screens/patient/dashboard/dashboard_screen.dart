@@ -1,8 +1,8 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'dashboard_item.dart';

@@ -13,6 +13,8 @@ import 'screens/general/welcome/splash/splash_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
 import 'screens/patient/auth/register/patient_register_screen.dart';
 import 'screens/patient/dashboard/dashboard_screen.dart';
+import 'screens/patient/find_doctor/doctor_list.dart';
+import 'screens/patient/find_doctor/find_doctor.dart';
 import 'screens/patient/home/home_screen.dart';
 import 'screens/patient/home/navigation_ui.dart';
 import 'screens/patient/notifications/notifications_screen.dart';
@@ -41,7 +43,7 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "GoogleSans",
           primarySwatch: Colors.red,
         ),
-        home: SplashScreen(),
+        home: DoctorList(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
@@ -57,6 +59,7 @@ class _MyAppState extends State<MyApp> {
               PatientNotificationsScreen(),
           PatientProfileScreen.id: (context) => PatientProfileScreen(),
           PatientSettingScreen.id: (context) => PatientSettingScreen(),
+          FindDoctor.id: (context) => FindDoctor(),
           // PatientDoctorDetails.id: (context) => PatientDoctorDetails(),
 
           // Doctor screens
