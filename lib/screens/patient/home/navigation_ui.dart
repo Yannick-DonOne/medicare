@@ -31,7 +31,7 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
     });
   }
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -69,9 +69,16 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
   Widget _myWidget() {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Medicare'),
+          title: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width * 0.11),
+              Image.asset('assets/images/logo.png', height: 45, width: 50),
+              Text('Medicare'),
+            ],
+          ),
           centerTitle: true,
-          leading: Container(),
+          leading: SizedBox(width: 0),
           backgroundColor: primaryColor,
         ),
         // drawer: CustomDrawer(),
