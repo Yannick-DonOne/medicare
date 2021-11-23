@@ -5,6 +5,7 @@ import 'package:medicare/screens/patient/home/doctor_details/doctor_details.dart
 import 'package:medicare/utils/theme/theme.dart';
 
 class DoctorList extends StatelessWidget {
+  static String id = 'doctor_list';
   const DoctorList({Key? key}) : super(key: key);
 
   @override
@@ -13,6 +14,10 @@ class DoctorList extends StatelessWidget {
         'https://cdn4.iconfinder.com/data/icons/people-avatar-flat-1/64/girl_chubby_beautiful_people_woman_lady_avatar-512.png';
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Doctors'),
+        backgroundColor: primaryColor,
+      ),
       backgroundColor: bgColorScreen,
       body: SafeArea(
         child: Padding(
