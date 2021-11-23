@@ -36,6 +36,7 @@ dependencies:
   url_launcher: ^5.1.2
   flutter_svg: ^0.22.0
   font_awesome_flutter: ^9.2.0
+  dropdown_below: ^1.0.1
 
 dev_dependencies:
   flutter_test:

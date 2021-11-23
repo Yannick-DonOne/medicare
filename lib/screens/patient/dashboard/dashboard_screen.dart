@@ -1,8 +1,12 @@
 // @dart=2.9
+import 'package:dropdown_below/dropdown_below.dart';
 import 'package:flutter/material.dart';
-import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
-import 'package:medicare/utils/theme/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
+import 'package:medicare/screens/patient/find_doctor/doctor_list.dart';
+import 'package:medicare/screens/patient/find_doctor/find_doctor_bottom_sheet.dart';
+import 'package:medicare/screens/patient/find_doctor/text.dart';
+import 'package:medicare/utils/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'dashboard_item.dart';
@@ -15,6 +19,8 @@ class PatientDashBoardScreen extends StatefulWidget {
 }
 
 class _PatientDashBoardScreenState extends State<PatientDashBoardScreen> {
+  List<DropdownMenuItem<Object>> _dropdownTestItems = [];
+
   _launchCaller(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -25,6 +31,9 @@ class _PatientDashBoardScreenState extends State<PatientDashBoardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ValueNotifier<String> currentGender = ValueNotifier(genderList[0]);
+    ValueNotifier<String> currentSpecialist = ValueNotifier(specialistList[0]);
+    ValueNotifier<String> currentRegion = ValueNotifier(regionsList[0]);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: bgColorScreen,
@@ -40,7 +49,11 @@ class _PatientDashBoardScreenState extends State<PatientDashBoardScreen> {
               DashBoardItem(
                 label: 'Find Doctor',
                 icon: FontAwesomeIcons.userNurse,
-                onPressed: () {},
+                onPressed: () {
+                  findDoctorSheet(context, size, currentSpecialist,
+                      currentRegion, currentGender);
+                  // Navigator.pushNamed(context, FindDoctor.id);
+                },
               ),
               DashBoardItem(
                 label: 'Emergency',

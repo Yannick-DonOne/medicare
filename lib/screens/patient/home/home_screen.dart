@@ -15,8 +15,7 @@ class PatientHomeScreen extends StatefulWidget {
 }
 
 class _PatientHomeScreenState extends State<PatientHomeScreen> {
-  String USER_IMAGE =
-      'https://cdn4.iconfinder.com/data/icons/people-avatar-flat-1/64/girl_chubby_beautiful_people_woman_lady_avatar-512.png';
+  String userImage = 'assets/images/logo.png';
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +99,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             children: <Widget>[
               CircleAvatar(
                 backgroundColor: Color(0xFFD9D9D9),
-                backgroundImage: NetworkImage(USER_IMAGE),
+                backgroundImage: NetworkImage(userImage),
                 radius: 36.0,
               ),
               RichText(
@@ -303,7 +302,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             children: <Widget>[
               CircleAvatar(
                 backgroundColor: Color(0xFFD9D9D9),
-                backgroundImage: NetworkImage(USER_IMAGE),
+                backgroundImage: NetworkImage(userImage),
                 radius: 36.0,
               ),
               SizedBox(
