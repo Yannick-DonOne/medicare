@@ -9,8 +9,7 @@ class MoodsSelector extends StatefulWidget {
 
 class _MoodsSelectorState extends State<MoodsSelector> {
   //List<bool> isSelected = List.generate(5, (_) => false);
-  List<bool> isSelected = [ true,false,false,false,false];
-  
+  List<bool> isSelected = [true, false, false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -25,26 +24,17 @@ class _MoodsSelectorState extends State<MoodsSelector> {
             Icons.sentiment_very_dissatisfied,
             size: 36,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-            child: Icon(
-              Icons.sentiment_dissatisfied,
-              size: 36,
-            ),
+          Icon(
+            Icons.sentiment_dissatisfied,
+            size: 36,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-            child: Icon(
-              Icons.sentiment_neutral,
-              size: 36,
-            ),
+          Icon(
+            Icons.sentiment_neutral,
+            size: 36,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-            child: Icon(
-              Icons.sentiment_satisfied,
-              size: 36,
-            ),
+          Icon(
+            Icons.sentiment_satisfied,
+            size: 36,
           ),
           Icon(
             Icons.sentiment_very_satisfied,

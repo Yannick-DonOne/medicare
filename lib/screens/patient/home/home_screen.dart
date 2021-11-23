@@ -18,6 +18,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Container(
         child: SingleChildScrollView(
@@ -38,7 +39,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
               SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Padding(
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.all(size.width * 0.03),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -90,8 +91,10 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
   }
 
   Container _appoinmentCard() {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
+      padding: EdgeInsets.symmetric(
+          vertical: size.width * 0.02, horizontal: size.width * 0.015),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -156,7 +159,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             height: 8.0,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               _iconBuilder(Icons.check_circle, 'Check-in'),
               _iconBuilder(Icons.highlight_remove, 'Cancel'),
@@ -213,47 +216,49 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
 
   Container _notificationCard() {
     return Container(
-      // padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Color(0xFFBF4954),
-        // gradient: redGradient,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: ListTile(
-        leading: Icon(
-          Icons.calendar_today,
-          color: Colors.white,
-          size: 32,
+        padding: EdgeInsets.symmetric(horizontal: 8),
+        decoration: BoxDecoration(
+          color: Color(0xFFBF4954),
+          // gradient: redGradient,
+          borderRadius: BorderRadius.circular(10),
         ),
-        title: Text(
-          'Your Visit with \nDr Kyecera',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        trailing: OutlineButton(
-          onPressed: () {},
-          color: Colors.transparent,
-          borderSide: BorderSide(
-            color: Colors.white,
-            width: 1.0,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(26),
-          ),
-          child: Text(
-            'Review & Add Notes',
-            style: TextStyle(
-              fontWeight: FontWeight.w300,
-              fontSize: 10,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(
+              Icons.calendar_today,
               color: Colors.white,
+              size: 32,
             ),
-          ),
-        ),
-      ),
-    );
+            Text(
+              'Your Visit with \nDr Kyecera',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            OutlineButton(
+              onPressed: () {},
+              color: Colors.transparent,
+              borderSide: BorderSide(
+                color: Colors.white,
+                width: 1.0,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(26),
+              ),
+              child: Text(
+                'Review & Add Notes',
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 
   Widget _areaSpecialistsText() {
@@ -284,8 +289,10 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
   }
 
   Widget _doctorCardInfo() {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
+      padding: EdgeInsets.symmetric(
+          vertical: size.width * 0.02, horizontal: size.width * 0.025),
       margin: EdgeInsets.only(
         bottom: 20.0,
       ),

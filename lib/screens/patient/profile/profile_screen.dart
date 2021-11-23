@@ -163,7 +163,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
         ),
         Container(
           margin: EdgeInsets.only(left: 15, right: 15, top: 20),
-          padding: EdgeInsets.only(left: 20, top: 20),
+          padding: EdgeInsets.all(8),
           // height: MediaQuery.of(context).size.height / 7,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
@@ -188,7 +188,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 8,
                   ),
                   Text(
                     'Bio',
@@ -201,7 +201,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
                 ],
               ),
               Container(
-                padding: EdgeInsets.only(left: 40, bottom: 10),
+                padding: EdgeInsets.only(left: 38, bottom: 10),
                 child: getBio(),
               )
             ],
