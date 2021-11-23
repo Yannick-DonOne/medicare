@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "GoogleSans",
           primarySwatch: Colors.red,
         ),
-        home: SplashScreen(),
+        home: PatientSettingScreen(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
