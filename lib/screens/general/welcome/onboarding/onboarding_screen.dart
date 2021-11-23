@@ -117,7 +117,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'Title 1',
+                              'Help On Demand',
                               style: TextStyle(
                                 color: whiteColor,
                                 fontWeight: FontWeight.w400,
@@ -127,7 +127,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: size.height * 0.05),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'Get quick care without an appointment for common conditions and everyday health concerns.',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,
@@ -154,7 +154,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'Title 2',
+                              'Resource Center',
                               style: TextStyle(
                                 color: whiteColor,
                                 fontWeight: FontWeight.w400,
@@ -164,7 +164,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: size.height * 0.05),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'Get the latest information on COVID-19 and other deceases and how they may affect you.',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,
@@ -191,7 +191,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'Title 3',
+                              'Health Safely',
                               style: TextStyle(
                                 color: whiteColor,
                                 fontWeight: FontWeight.w400,
@@ -201,7 +201,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: size.height * 0.05),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'We are ready to care for you and your family and provide you the best and most professional medical assistance.',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,
