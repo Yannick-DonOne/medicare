@@ -79,121 +79,137 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(left: 10),
-              child: Column(
-                children: <Widget>[
-                  Image.asset(
-                    'assets/images/logo.png',
-                    // height: 200,
-                    // width: 200,
-                  ),
-                  Text(
-                    "Medicare",
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: primaryColor,
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  child: Center(
+                    child: Column(
+                      children: <Widget>[
+                        Image.asset(
+                          'assets/images/logo.png',
+                          // height: 200,
+                          // width: 200,
+                        ),
+                        Text(
+                          "Medicare",
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: primaryColor,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Text(
+                          "Welcome",
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 50,
+                ),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        controller: doctorID,
+                        autofocus: false,
+                        obscureText: !passwordVisible,
+                        decoration: InputDecoration(
+                          hintText: 'Enter Doctor ID',
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 20.0),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(32.0)),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: primaryColor, width: 1.0),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(32.0)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: primaryColor, width: 2.0),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(32.0)),
+                          ),
+                        ),
+                        // onSaved: (String? value) {
+                        //   setState(() {
+                        //     doctorID = value;
+                        //   });
+                        // },
+                        validator: (value) =>
+                            value!.isEmpty ? "Please enter ID" : null,
+                      ),
+                      SizedBox(height: 20),
+                      TextFormField(
+                        controller: password,
+                        decoration: InputDecoration(
+                          hintText: 'Enter your password',
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 20.0),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(32.0)),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: primaryColor, width: 1.0),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(32.0)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: primaryColor, width: 2.0),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(32.0)),
+                          ),
+                          suffixIcon: IconButton(
+                            color: textGrey,
+                            splashRadius: 1,
+                            icon: Icon(passwordVisible
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined),
+                            onPressed: togglePassword,
+                          ),
+                        ),
+                        obscureText: true,
+                        // onSaved: (String value) {
+                        //   setState(() {
+                        //     password = value;
+                        //   });
+                        // },
+                        validator: (value) =>
+                            value!.isEmpty ? "Please enter password" : null,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      CustomButton(
+                        child: Text('Login'),
+                        gradient: CustomTheme.buttonGradient,
+                        onPressed: () => submitForm(),
+                      ),
+                    ],
                   ),
-                  Text(
-                    "Welcome",
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: primaryColor,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Form(
-              key: formKey,
-              child: Column(
-                children: <Widget>[
-                  TextFormField(
-                    controller: doctorID,
-                    autofocus: false,
-                    obscureText: !passwordVisible,
-                    decoration: InputDecoration(
-                      hintText: 'Enter Doctor ID',
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 20.0),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: primaryColor, width: 1.0),
-                        borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: primaryColor, width: 2.0),
-                        borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                      ),
-                    ),
-                    // onSaved: (String? value) {
-                    //   setState(() {
-                    //     doctorID = value;
-                    //   });
-                    // },
-                    validator: (value) =>
-                        value!.isEmpty ? "Please enter ID" : null,
-                  ),
-                  SizedBox(height: 20),
-                  TextFormField(
-                    controller: password,
-                    decoration: InputDecoration(
-                      hintText: 'Enter your password',
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 20.0),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: primaryColor, width: 1.0),
-                        borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: primaryColor, width: 2.0),
-                        borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                      ),
-                      suffixIcon: IconButton(
-                        color: textGrey,
-                        splashRadius: 1,
-                        icon: Icon(passwordVisible
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined),
-                        onPressed: togglePassword,
-                      ),
-                    ),
-                    obscureText: true,
-                    // onSaved: (String value) {
-                    //   setState(() {
-                    //     password = value;
-                    //   });
-                    // },
-                    validator: (value) =>
-                        value!.isEmpty ? "Please enter password" : null,
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  CustomButton(
-                    child: Text('Login'),
-                    gradient: CustomTheme.buttonGradient,
-                    onPressed: () => submitForm(),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

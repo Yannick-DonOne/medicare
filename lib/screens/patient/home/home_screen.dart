@@ -277,6 +277,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
   }
 
   Widget _doctorCardInfo() {
+    Size size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       margin: EdgeInsets.only(
@@ -296,75 +297,78 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              CircleAvatar(
-                backgroundColor: Color(0xFFD9D9D9),
-                backgroundImage: NetworkImage(userImage),
-                radius: 36.0,
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  RichText(
-                    text: TextSpan(
-                      text: 'Wellness\n',
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        height: 1.3,
+          Container(
+            width: size.width * 0.83,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundColor: Color(0xFFD9D9D9),
+                  backgroundImage: NetworkImage(userImage),
+                  radius: size.width * 0.1,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    RichText(
+                      text: TextSpan(
+                        text: 'Wellness\n',
+                        style: TextStyle(
+                          color: Colors.purple,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          height: 1.3,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Dr Ayor Kruger',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '\nPoplar Pharma Limited',
+                            style: TextStyle(
+                              color: Colors.black45,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '\nDermatologist \nSAn Franscisco CA | 5 min',
+                            style: TextStyle(
+                              color: Colors.black38,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
                       ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Dr Ayor Kruger',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '\nPoplar Pharma Limited',
-                          style: TextStyle(
-                            color: Colors.black45,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '\nDermatologist \nSAn Franscisco CA | 5 min',
-                          style: TextStyle(
-                            color: Colors.black38,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
                     ),
-                  ),
-                  CustomButton(
-                    child: Text('View'),
-                    gradient: CustomTheme.buttonGradient,
-                    onPressed: () {
-                      // TODO: navigate to doctor detail screen pass doctor info
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PatientDoctorDetails(''),
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ],
+                    CustomButton(
+                      child: Text('View'),
+                      gradient: CustomTheme.buttonGradient,
+                      onPressed: () {
+                        // TODO: navigate to doctor detail screen pass doctor info
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PatientDoctorDetails(''),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Icon(
             Icons.medical_services, // TODO use heart icon here

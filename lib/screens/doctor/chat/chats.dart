@@ -100,6 +100,7 @@ class _DoctorChatsState extends State<DoctorChats> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: ListView.builder(
             itemCount: patients.length,
@@ -115,71 +116,78 @@ class _DoctorChatsState extends State<DoctorChats> {
                 },
                 child: Card(
                   elevation: 1,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Stack(
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: primaryColor,
-                                child: Image.asset(
-                                  'assets/images/logo.png',
-                                  height: 90,
-                                  width: 90,
-                                  fit: BoxFit.contain,
-                                ),
-                                radius: 40,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: Row(
+                      children: <Widget>[
+                        Stack(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: primaryColor,
+                              child: Image.asset(
+                                'assets/images/logo.png',
+                                fit: BoxFit.contain,
                               ),
-                              CircleAvatar(
-                                backgroundColor: success,
-                                radius: 10,
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 5),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                children: [
-                                  Text(
+                              radius: size.width * 0.1,
+                            ),
+                            CircleAvatar(
+                              backgroundColor: success,
+                              radius: 10,
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 5),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.52,
+                                  child: Text(
                                     '' + "Njume Yannick",
+                                    overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w800,
                                     ),
                                   ),
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                  ),
-                                  Text(
-                                    DateTime.now().hour.toString() +
-                                        ':' +
-                                        DateTime.now().minute.toString(),
-                                  )
-                                ],
-                              ),
-                              SizedBox(height: 10),
-                              Container(
-                                width:
-                                    MediaQuery.of(context).size.width * 4 / 6,
-                                child: Text(
-                                  "Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore ets eiusmod tempor",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                  ),
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.1,
+                                ),
+                                Text(
+                                  DateTime.now().hour.toString() +
+                                      ':' +
+                                      DateTime.now().minute.toString(),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 4 / 6,
+                              child: Text(
+                                "Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore ets eiusmod tempor",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w200,
                                 ),
                               ),
-                              Text("South West" + ' | ' + "Mayor Street"),
-                              SizedBox(height: 10)
-                            ],
-                          )
-                        ],
-                      )
-                    ],
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 4 / 6,
+                              child: Text(
+                                "South West" + ' | ' + "Mayor Street",
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            SizedBox(height: 10)
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               );

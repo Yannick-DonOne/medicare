@@ -25,7 +25,7 @@ class CustomButton extends StatelessWidget {
               gradient: CustomTheme.buttonGradient,
             ),
             constraints: BoxConstraints(
-              maxWidth: 200.0,
+              maxWidth: 190.0,
               minHeight: 50.0,
             ),
             alignment: Alignment.center,
