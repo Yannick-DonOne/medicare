@@ -1,11 +1,37 @@
+import 'package:dropdown_below/dropdown_below.dart';
 import 'package:flutter/material.dart';
+import 'package:medicare/screens/patient/find_doctor/text.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
-class FindDoctor extends StatelessWidget {
+class FindDoctor extends StatefulWidget {
+  static String id = 'find_doctor_screen';
   const FindDoctor({Key? key}) : super(key: key);
 
   @override
+  State<FindDoctor> createState() => _FindDoctorState();
+}
+
+class _FindDoctorState extends State<FindDoctor> {
+  List<DropdownMenuItem<Object?>> _dropdownTestItems = [];
+
+  List<DropdownMenuItem<Object?>> buildDropdownTestItems(List _testList) {
+    List<DropdownMenuItem<Object?>> items = [];
+    for (var i in _testList) {
+      items.add(
+        DropdownMenuItem(
+          value: i,
+          child: Text(i),
+        ),
+      );
+    }
+    return items;
+  }
+
+  @override
   Widget build(BuildContext context) {
+    ValueNotifier<String> currentGender = ValueNotifier(genderList[0]);
+    ValueNotifier<String> currentSpecialist = ValueNotifier(specialistList[0]);
+    ValueNotifier<String> currentRegion = ValueNotifier(regionsList[0]);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: bgColorScreen,
@@ -28,78 +54,94 @@ class FindDoctor extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.04,
                 ),
-                Container(
-                  width: size.width,
-                  height: size.height * 0.09,
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    border: Border.all(
-                      color: grey.withOpacity(0.8),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(4),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Specialist Doctor',
-                          style: TextStyle(
-                            color: black.withOpacity(0.6),
-                            fontSize: size.width * 0.055,
-                            fontWeight: FontWeight.w700,
-                          ),
+                ValueListenableBuilder<String>(
+                  valueListenable: currentSpecialist,
+                  builder: (BuildContext context, String value, Widget? child) {
+                    return DropdownBelow(
+                      value: value,
+                      itemWidth: size.width,
+                      itemTextstyle: TextStyle(
+                        color: black.withOpacity(0.6),
+                        fontSize: size.width * 0.055,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      hint: Text(specialistList[0]),
+                      boxTextstyle: TextStyle(
+                        color: black.withOpacity(0.6),
+                        fontSize: size.width * 0.055,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      boxDecoration: BoxDecoration(
+                        color: whiteColor,
+                        border: Border.all(
+                          color: grey.withOpacity(0.8),
+                          width: 2,
                         ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: black.withOpacity(0.6),
-                          size: size.width * 0.13,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                      boxPadding: EdgeInsets.symmetric(horizontal: 8.0),
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: black.withOpacity(0.6),
+                        size: size.width * 0.13,
+                      ),
+                      boxHeight: size.height * 0.09,
+                      boxWidth: size.width,
+                      items: _dropdownTestItems =
+                          buildDropdownTestItems(specialistList),
+                      onChanged: (value) {
+                        currentSpecialist.value = value.toString();
+                      },
+                    );
+                  },
                 ),
                 SizedBox(
                   height: size.height * 0.04,
                 ),
-                Container(
-                  width: size.width,
-                  height: size.height * 0.09,
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    border: Border.all(
-                      color: grey.withOpacity(0.8),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(4),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Current Location',
-                          style: TextStyle(
-                            color: black.withOpacity(0.6),
-                            fontSize: size.width * 0.055,
-                            fontWeight: FontWeight.w700,
-                          ),
+                ValueListenableBuilder<String>(
+                  valueListenable: currentRegion,
+                  builder: (BuildContext context, String value, Widget? child) {
+                    return DropdownBelow(
+                      value: value,
+                      itemWidth: size.width,
+                      itemTextstyle: TextStyle(
+                        color: black.withOpacity(0.6),
+                        fontSize: size.width * 0.055,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      boxTextstyle: TextStyle(
+                        color: black.withOpacity(0.6),
+                        fontSize: size.width * 0.055,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      hint: Text(regionsList[0]),
+                      boxDecoration: BoxDecoration(
+                        color: whiteColor,
+                        border: Border.all(
+                          color: grey.withOpacity(0.8),
+                          width: 2,
                         ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: black.withOpacity(0.6),
-                          size: size.width * 0.13,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                      boxPadding: EdgeInsets.symmetric(horizontal: 8.0),
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: black.withOpacity(0.6),
+                        size: size.width * 0.13,
+                      ),
+                      boxHeight: size.height * 0.09,
+                      boxWidth: size.width,
+                      items: _dropdownTestItems =
+                          buildDropdownTestItems(regionsList),
+                      onChanged: (value) {
+                        currentRegion.value = value.toString();
+                      },
+                    );
+                  },
                 ),
                 SizedBox(
                   height: size.height * 0.04,
@@ -130,11 +172,6 @@ class FindDoctor extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: black.withOpacity(0.6),
-                          size: size.width * 0.13,
-                        ),
                       ],
                     ),
                   ),
@@ -142,40 +179,48 @@ class FindDoctor extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.04,
                 ),
-                Container(
-                  width: size.width,
-                  height: size.height * 0.09,
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    border: Border.all(
-                      color: grey.withOpacity(0.8),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(4),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Gender',
-                          style: TextStyle(
-                            color: black.withOpacity(0.6),
-                            fontSize: size.width * 0.055,
-                            fontWeight: FontWeight.w700,
-                          ),
+                ValueListenableBuilder<String>(
+                  valueListenable: currentGender,
+                  builder: (BuildContext context, String value, Widget? child) {
+                    return DropdownBelow(
+                      value: value,
+                      itemWidth: size.width,
+                      itemTextstyle: TextStyle(
+                        color: black.withOpacity(0.6),
+                        fontSize: size.width * 0.055,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      hint: Text(genderList[0]),
+                      boxTextstyle: TextStyle(
+                        color: black.withOpacity(0.6),
+                        fontSize: size.width * 0.055,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      boxDecoration: BoxDecoration(
+                        color: whiteColor,
+                        border: Border.all(
+                          color: grey.withOpacity(0.8),
+                          width: 2,
                         ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: black.withOpacity(0.6),
-                          size: size.width * 0.13,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                      boxPadding: EdgeInsets.symmetric(horizontal: 8.0),
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: black.withOpacity(0.6),
+                        size: size.width * 0.13,
+                      ),
+                      boxHeight: size.height * 0.09,
+                      boxWidth: size.width,
+                      items: _dropdownTestItems =
+                          buildDropdownTestItems(genderList),
+                      onChanged: (value) {
+                        currentGender.value = value.toString();
+                      },
+                    );
+                  },
                 ),
                 SizedBox(
                   height: size.height * 0.04,

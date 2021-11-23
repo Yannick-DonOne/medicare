@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/screens/patient/find_doctor/find_doctor.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,28 +25,33 @@ class _PatientDashBoardScreenState extends State<PatientDashBoardScreen> {
           shrinkWrap: true,
           padding: const EdgeInsets.all(16.0),
           children: [
-            Card(
-              margin: EdgeInsets.all(0),
-              color: whiteColor,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Icon(
-                    FontAwesomeIcons.userNurse,
-                    color: primaryColor,
-                    size: size.width * 0.25,
-                  ),
-                  Text(
-                    'Find Doctor',
-                    style: TextStyle(
-                      color: black.withOpacity(0.8),
-                      fontSize: size.width * 0.05,
-                      fontWeight: FontWeight.w600,
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, FindDoctor.id);
+              },
+              child: Card(
+                margin: EdgeInsets.all(0),
+                color: whiteColor,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.userNurse,
+                      color: primaryColor,
+                      size: size.width * 0.25,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+                    Text(
+                      'Find Doctor',
+                      style: TextStyle(
+                        color: black.withOpacity(0.8),
+                        fontSize: size.width * 0.05,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
             Card(
