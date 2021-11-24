@@ -65,10 +65,6 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColorScreen,
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        title: Text('Appointments'),
-      ),
       body: Container(
         child: FutureBuilder(
           builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -101,23 +97,24 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
                 // if (_checkDiff(document['date'].toDate())) {
                 //   deleteAppointment(document.id);
                 // }
+                Size size = MediaQuery.of(context).size;
                 return Card(
                   elevation: 2,
                   child: InkWell(
                     onTap: () {},
                     child: ExpansionTile(
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5),
-                            child: Text(
-                              "Njume Yannick",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          Text(
+                            "Njume Yannick ",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
+                          ),
+                          SizedBox(
+                            height: 2,
                           ),
                           Text(
                             DateTime.now().toString(),
@@ -131,12 +128,9 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
                           ),
                         ],
                       ),
-                      subtitle: Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Text(
-                          "Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
-                          style: TextStyle(),
-                        ),
+                      subtitle: Text(
+                        "Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
+                        style: TextStyle(),
                       ),
                       children: [
                         Padding(
@@ -160,7 +154,7 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
                                   Text(
                                     "Time: " + DateTime.now().toString(),
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 15,
                                     ),
                                   ),
                                 ],

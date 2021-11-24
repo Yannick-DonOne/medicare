@@ -99,7 +99,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             children: <Widget>[
               CircleAvatar(
                 backgroundColor: Color(0xFFD9D9D9),
-                backgroundImage: NetworkImage(userImage),
+                backgroundImage: AssetImage(userImage),
                 radius: 36.0,
               ),
               RichText(
@@ -305,7 +305,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
               children: <Widget>[
                 CircleAvatar(
                   backgroundColor: Color(0xFFD9D9D9),
-                  backgroundImage: NetworkImage(userImage),
+                  backgroundImage: AssetImage(userImage),
                   radius: size.width * 0.1,
                 ),
                 SizedBox(
