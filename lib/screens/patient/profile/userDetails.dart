@@ -12,18 +12,16 @@ class _UserDetailsState extends State<UserDetails> {
     'Name',
     'Email',
     'Mobile Number',
-    'Bio',
     'Birthday',
     'City',
   ];
 
   List value = [
-    'name',
-    'email',
-    'phone',
-    'bio',
-    'birthDate',
-    'city',
+    'Njume Yannick',
+    'yannick@gmail.com',
+    '671268292',
+    '23/10/2001',
+    'Buea',
   ];
 
   @override
@@ -35,7 +33,7 @@ class _UserDetailsState extends State<UserDetails> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: FutureBuilder(
         builder: (context, snapshot) {
           // if (!snapshot.hasData)
@@ -48,7 +46,7 @@ class _UserDetailsState extends State<UserDetails> {
             physics: ClampingScrollPhysics(),
             shrinkWrap: true,
             children: List.generate(
-              6,
+              5,
               (index) => Container(
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 child: InkWell(
