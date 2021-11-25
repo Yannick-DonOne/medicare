@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
 import 'components/notificationTiles.dart';
-import 'notificationPage.dart';
+import 'notification_details.dart';
 
-class PatientNotificationsScreen extends StatefulWidget {
-  static String id = 'notifications_screen';
-  const PatientNotificationsScreen({Key? key}) : super(key: key);
+class DoctorNotificationsScreen extends StatefulWidget {
+  static String id = 'doctor_notifications_screen';
+  const DoctorNotificationsScreen({Key? key}) : super(key: key);
 
   @override
-  _PatientNotificationsScreenState createState() =>
-      _PatientNotificationsScreenState();
+  _DoctorNotificationsScreenState createState() =>
+      _DoctorNotificationsScreenState();
 }
 
-class _PatientNotificationsScreenState
-    extends State<PatientNotificationsScreen> {
+class _DoctorNotificationsScreenState extends State<DoctorNotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +24,11 @@ class _PatientNotificationsScreenState
           itemCount: 12,
           itemBuilder: (context, index) {
             return NotificationTiles(
-              title: 'E-Commerce',
-              subtitle: 'Thanks for download E-Commerce app.',
+              title: 'Summit Tech',
+              subtitle: 'Thanks for download Medicare app.',
               enable: true,
-              // onTap: () {}
               onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => NotificationPage()),
+                MaterialPageRoute(builder: (context) => NotificationDetails()),
               ),
             );
           },

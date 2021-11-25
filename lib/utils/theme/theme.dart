@@ -8,15 +8,10 @@ class AppTheme {
     backgroundColor: LightColor.background,
     primaryColor: LightColor.purple,
     cardTheme: CardTheme(color: LightColor.background),
-    // ignore: deprecated_member_use
-    // textTheme: TextTheme(display1: TextStyle(color: LightColor.black)),
     iconTheme: IconThemeData(color: LightColor.iconColor),
     bottomAppBarColor: LightColor.background,
     dividerColor: LightColor.grey,
-    primaryTextTheme: TextTheme(
-        // ignore: deprecated_member_use
-        // body1: TextStyle(color: LightColor.titleTextColor),
-        ),
+    primaryTextTheme: TextTheme(),
   );
 
   static TextStyle titleStyle =
@@ -130,6 +125,18 @@ InputDecoration textFieldDecoration(String hint) {
   );
 }
 
+const kMessageTextFieldDecoration = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  hintText: 'Type your message here...',
+  border: InputBorder.none,
+);
+
+const kSendButtonTextStyle = TextStyle(
+  color: whiteColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 18.0,
+);
+
 const kDefaultPadding = 20.0;
 
 const kPrimaryColor = Color(0XFF4F80C8);
@@ -137,3 +144,6 @@ const kTextColor = Color(0XFF364861);
 const kTextLightColor = Color(0XFF374457);
 const kIndicatorColor = Color(0XFFCBCCD5);
 const kBackgroundColor = Color(0XFFF6F8FF);
+Color textBlack = Color(0xff222222);
+Color textGrey = Color(0xff94959b);
+Color textWhiteGrey = Color(0xfff1f1f5);
