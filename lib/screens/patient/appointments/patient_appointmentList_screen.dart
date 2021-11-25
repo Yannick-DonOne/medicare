@@ -4,6 +4,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:medicare/core/models/Appointments.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
+import 'book_appointment.dart';
+
 class PatientAppointmentList extends StatefulWidget {
   @override
   _PatientAppointmentListState createState() => _PatientAppointmentListState();
@@ -68,6 +70,12 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
     height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: bgColorScreen,
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, PatientBookappointment.id);
+            },
+            child: Icon(Icons.add),
+            backgroundColor: primaryColor),
         body: DefaultTabController(
           length: 3,
           child: Scaffold(
