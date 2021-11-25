@@ -65,6 +65,12 @@ class _PatientAppointmentListState extends State<PatientAppointmentList> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColorScreen,
+      floatingActionButton: FloatingActionButton(
+        elevation: 0.0,
+        child: Icon(Icons.add),
+        backgroundColor: primaryColor,
+        onPressed: () {},
+      ),
       body: Container(
         child: FutureBuilder(
           builder: (BuildContext context, AsyncSnapshot snapshot) {

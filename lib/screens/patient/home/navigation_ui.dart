@@ -104,7 +104,7 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
             BottomNavigationBarItem(
               icon: Icon(Icons.medical_services),
               // ignore: deprecated_member_use
-              title: Text('Appiontment'),
+              title: Text('Appiontments'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
