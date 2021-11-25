@@ -1,6 +1,7 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'package:medicare/screens/patient/dashboard/dashboard_screen.dart';
 import 'package:medicare/screens/patient/notifications/notifications_screen.dart';
 import 'package:medicare/screens/patient/profile/profile_screen.dart';
@@ -46,7 +47,8 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
 
   List<Widget> _widgetOptions = <Widget>[
     PatientProfileScreen(),
-    PatientDashBoardScreen(),
+    // PatientDashBoardScreen(),
+    PatientAppointmentList(),
     PatientHomeScreen(),
     PatientNotificationsScreen(),
     PatientSettingScreen(),
@@ -92,10 +94,17 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
               // ignore: deprecated_member_use
               title: Text('Profile'),
             ),
+
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.dashboard),
+            //   // ignore: deprecated_member_use
+            //   title: Text('Dashboard'),
+            // ),
+
             BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
+              icon: Icon(Icons.medical_services),
               // ignore: deprecated_member_use
-              title: Text('Dashboard'),
+              title: Text('Appiontment'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
