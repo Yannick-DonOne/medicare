@@ -1,9 +1,7 @@
 // @dart=2.9
-import 'package:dropdown_below/dropdown_below.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
-import 'package:medicare/screens/patient/find_doctor/doctor_list.dart';
 import 'package:medicare/screens/patient/find_doctor/find_doctor_bottom_sheet.dart';
 import 'package:medicare/screens/patient/find_doctor/text.dart';
 import 'package:medicare/utils/theme/theme.dart';
@@ -19,7 +17,6 @@ class PatientDashBoardScreen extends StatefulWidget {
 }
 
 class _PatientDashBoardScreenState extends State<PatientDashBoardScreen> {
-  List<DropdownMenuItem<Object>> _dropdownTestItems = [];
 
   _launchCaller(String url) async {
     if (await canLaunch(url)) {

@@ -7,7 +7,9 @@ import 'screens/doctor/auth/login/doctor_login_screen.dart';
 import 'screens/doctor/chat/chats.dart';
 import 'screens/doctor/home/doctor_navigation_ui.dart';
 import 'screens/doctor/notifications/notifications_screen.dart';
+import 'screens/general/About/about_us.dart';
 import 'screens/general/option/option_screen.dart';
+import 'screens/general/privacy/privacy_policy.dart';
 import 'screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'screens/general/welcome/splash/splash_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
@@ -47,6 +49,8 @@ class _MyAppState extends State<MyApp> {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
           OptionScreen.id: (context) => OptionScreen(),
+          AboutUs.id: (context) => AboutUs(),
+          PrivacyPolicy.id: (context) => PrivacyPolicy(),
 
           // Patient screens.
           PatientLoginScreen.id: (context) => PatientLoginScreen(),

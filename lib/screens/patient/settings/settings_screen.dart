@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/screens/general/About/about_us.dart';
+import 'package:medicare/screens/general/privacy/privacy_policy.dart';
 import 'package:medicare/screens/patient/profile/userDetails.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
@@ -29,6 +31,10 @@ class _PatientSettingScreenState extends State<PatientSettingScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    double width;
+    double height;
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -59,9 +65,7 @@ class _PatientSettingScreenState extends State<PatientSettingScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20),
                 Text(
                   'General Settings',
                   style: TextStyle(
@@ -74,16 +78,53 @@ class _PatientSettingScreenState extends State<PatientSettingScreen> {
                   height: 10,
                 ),
                 Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: grey,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(5),
-                    ),
-                  ),
                   child: GeneralSettings(),
                 ),
+                SizedBox(height: 20),
+                Text(
+                  'About',
+                  style: TextStyle(
+                    fontSize: size.width * 0.08,
+                    color: primaryColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  child: Column(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, AboutUs.id);
+                        },
+                        child: Container(
+                          alignment: Alignment.centerLeft,
+                          margin: EdgeInsets.only(top: height * 0.025),
+                          child: Text(
+                            "About SummitCare".toString(),
+                            style: TextStyle(
+                                fontSize: width * 0.038, color: primaryColor),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, PrivacyPolicy.id);
+                        },
+                        child: Container(
+                          alignment: Alignment.centerLeft,
+                          margin: EdgeInsets.only(top: height * 0.025),
+                          child: Text(
+                            "Privacy Policy".toString(),
+                            style: TextStyle(
+                                fontSize: width * 0.038, color: primaryColor),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 30),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   padding: EdgeInsets.symmetric(horizontal: 14),
