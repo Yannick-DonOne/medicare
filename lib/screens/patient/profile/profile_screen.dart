@@ -89,7 +89,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
         Container(
           margin: EdgeInsets.only(left: 15, right: 15),
           padding: EdgeInsets.only(left: 20),
-          height: MediaQuery.of(context).size.height / 7,
+          height: MediaQuery.of(context).size.height / 4,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -159,56 +159,73 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
                   ),
                 ],
               ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      height: 27,
+                      width: 27,
+                      color: primaryColor,
+                      child: Icon(
+                        Icons.calendar_today,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "00-00-0000",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      height: 27,
+                      width: 27,
+                      color: primaryColor,
+                      child: Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Male",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
-        // Container(
-        //   margin: EdgeInsets.only(left: 15, right: 15, top: 20),
-        //   padding: EdgeInsets.all(8),
-        //   // height: MediaQuery.of(context).size.height / 7,
-        //   width: MediaQuery.of(context).size.width,
-        //   decoration: BoxDecoration(
-        //     borderRadius: BorderRadius.circular(10),
-        //     color: Colors.blueGrey[50],
-        //   ),
-        //   child: Column(
-        //     children: [
-        //       Row(
-        //         children: [
-        //           ClipRRect(
-        //             borderRadius: BorderRadius.circular(30),
-        //             child: Container(
-        //               height: 27,
-        //               width: 27,
-        //               color: primaryColor,
-        //               child: Icon(
-        //                 Icons.edit,
-        //                 color: Colors.white,
-        //                 size: 16,
-        //               ),
-        //             ),
-        //           ),
-        //           SizedBox(
-        //             width: 8,
-        //           ),
-        //           Text(
-        //             'Bio',
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               fontWeight: FontWeight.bold,
-        //               color: Colors.black,
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //       Container(
-        //         padding: EdgeInsets.only(left: 38, bottom: 10),
-        //         child: getBio(),
-        //       )
-        //     ],
-        //   ),
-        // ),
-
         Container(
           margin: EdgeInsets.only(left: 15, right: 15, top: 20),
           padding: EdgeInsets.only(left: 20, top: 20, bottom: 20),
@@ -287,19 +304,5 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
         ),
       ],
     );
-  }
-
-  Widget getBio() {
-    return Column(children: [
-      Text(
-        "Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore ets eiusmod tempor incididunt ut labore ets.",
-        textAlign: TextAlign.justify,
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: Colors.black38,
-        ),
-      ),
-    ]);
   }
 }

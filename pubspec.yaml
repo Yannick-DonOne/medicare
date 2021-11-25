@@ -37,6 +37,8 @@ dependencies:
   flutter_svg: ^0.22.0
   font_awesome_flutter: ^9.2.0
   dropdown_below: ^1.0.1
+  cached_network_image: ^3.1.0
+flutter_spinkit: ^5.1.0
 
 dev_dependencies:
   flutter_test:
