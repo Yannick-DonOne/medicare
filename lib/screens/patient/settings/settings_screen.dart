@@ -32,10 +32,18 @@ class _PatientSettingScreenState extends State<PatientSettingScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double width;
-    double height;
     width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: whiteColor,
+        title: Text(
+          "Settings",
+          style: TextStyle(
+              fontSize: 18, color: primaryColor, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
@@ -43,85 +51,92 @@ class _PatientSettingScreenState extends State<PatientSettingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'User Settings',
-                  style: TextStyle(
-                    fontSize: size.width * 0.08,
-                    color: primaryColor,
-                    fontWeight: FontWeight.w700,
+                Container(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    'User Settings',
+                    style: TextStyle(
+                      fontSize: size.width * 0.08,
+                      color: primaryColor,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Container(
+                Card(
+                  elevation: 2,
                   child: UserDetails(),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: grey,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(5),
-                    ),
-                  ),
                 ),
                 SizedBox(height: 20),
-                Text(
-                  'General Settings',
-                  style: TextStyle(
-                    fontSize: size.width * 0.08,
-                    color: primaryColor,
-                    fontWeight: FontWeight.w700,
+                Container(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    'General Settings',
+                    style: TextStyle(
+                      fontSize: size.width * 0.08,
+                      color: primaryColor,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Container(
+                Card(
+                  elevation: 2,
                   child: GeneralSettings(),
                 ),
                 SizedBox(height: 20),
-                Text(
-                  'About',
-                  style: TextStyle(
-                    fontSize: size.width * 0.08,
-                    color: primaryColor,
-                    fontWeight: FontWeight.w700,
+                Container(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    'About',
+                    style: TextStyle(
+                      fontSize: size.width * 0.08,
+                      color: primaryColor,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
                 SizedBox(height: 10),
-                Container(
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, AboutUs.id);
-                        },
-                        child: Container(
-                          alignment: Alignment.centerLeft,
-                          margin: EdgeInsets.only(top: height * 0.025),
-                          child: Text(
-                            "About SummitCare".toString(),
-                            style: TextStyle(
-                                fontSize: width * 0.038, color: primaryColor),
+                Card(
+                  elevation: 2,
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, AboutUs.id);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(10),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "About SummitCare".toString(),
+                              style: TextStyle(
+                                  fontSize: width * 0.038, color: primaryColor),
+                            ),
                           ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, PrivacyPolicy.id);
-                        },
-                        child: Container(
-                          alignment: Alignment.centerLeft,
-                          margin: EdgeInsets.only(top: height * 0.025),
-                          child: Text(
-                            "Privacy Policy".toString(),
-                            style: TextStyle(
-                                fontSize: width * 0.038, color: primaryColor),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, PrivacyPolicy.id);
+                          },
+                          child: Container(
+                            alignment: Alignment.centerLeft,
+                            margin: EdgeInsets.all(10),
+                            child: Text(
+                              "Privacy Policy".toString(),
+                              style: TextStyle(
+                                  fontSize: width * 0.038, color: primaryColor),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 30),

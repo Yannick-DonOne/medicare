@@ -13,6 +13,7 @@ import 'screens/general/privacy/privacy_policy.dart';
 import 'screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'screens/general/welcome/splash/splash_screen.dart';
 import 'screens/patient/appointments/book_appointment.dart';
+import 'screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
 import 'screens/patient/auth/register/patient_register_screen.dart';
 import 'screens/patient/dashboard/dashboard_screen.dart';
@@ -41,10 +42,6 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         title: 'Medicare',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: "GoogleSans",
-          primarySwatch: Colors.red,
-        ),
         home: SplashScreen(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
@@ -65,7 +62,7 @@ class _MyAppState extends State<MyApp> {
           PatientSettingScreen.id: (context) => PatientSettingScreen(),
           DoctorList.id: (context) => DoctorList(),
           PatientBookappointment.id: (context) => PatientBookappointment(),
-          // PatientDoctorDetails.id: (context) => PatientDoctorDetails(),
+          PatientAppointments.id: (context) => PatientAppointments(),
 
           // Doctor screens
           DoctorLoginScreen.id: (context) => DoctorLoginScreen(),

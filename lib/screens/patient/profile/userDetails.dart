@@ -36,11 +36,6 @@ class _UserDetailsState extends State<UserDetails> {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: FutureBuilder(
         builder: (context, snapshot) {
-          // if (!snapshot.hasData)
-          //   return Center(
-          //     child: CircularProgressIndicator(),
-          //   );
-          // var userData = snapshot.data;
           return ListView(
             scrollDirection: Axis.vertical,
             physics: ClampingScrollPhysics(),
@@ -52,20 +47,8 @@ class _UserDetailsState extends State<UserDetails> {
                 child: InkWell(
                   splashColor: Colors.grey.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => UpdateUserDetails(
-                    //               label: labelName[index],
-                    //               field: value[index],
-                    //             )));
-                  },
+                  onTap: () {},
                   child: Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[200],
-                    ),
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 14),
                       height: MediaQuery.of(context).size.height / 14,

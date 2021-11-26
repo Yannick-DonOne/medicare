@@ -22,6 +22,7 @@ class _PatientNotificationsScreenState
     height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: whiteColor,
         title: Text(

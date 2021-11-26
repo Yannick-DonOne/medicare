@@ -47,7 +47,7 @@ class _PatientNavigationUIState extends State<PatientNavigationUI> {
   List<Widget> _widgetOptions = <Widget>[
     PatientProfileScreen(),
     // PatientDashBoardScreen(),
-    PatientAppointmentList(),
+    PatientAppointments(),
     PatientHomeScreen(),
     PatientNotificationsScreen(),
     PatientSettingScreen(),

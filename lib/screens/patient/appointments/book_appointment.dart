@@ -26,7 +26,6 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
   // Detail_Setting & Payment_Detail //
   String? businessname = "";
   String? logo = "";
-  String? razorpay_key = "";
   int? cod = 0;
   int? stripe = 0;
   int? paypal = 0;
@@ -44,7 +43,6 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
   late var str;
   var parts;
   var paymenttype;
-  var start_part;
 
   int _currentStep = 0;
   StepperType stepperType = StepperType.horizontal;
@@ -68,26 +66,26 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
   List hosiptal = [];
   List hosiptalGallery = [];
 
-  TextEditingController appointment_for = TextEditingController();
-  TextEditingController patient_name = TextEditingController();
-  TextEditingController illness_information = TextEditingController();
+  TextEditingController appointmentFor = TextEditingController();
+  TextEditingController patientName = TextEditingController();
+  TextEditingController illnessInformation = TextEditingController();
   TextEditingController age = TextEditingController();
-  TextEditingController patient_address = TextEditingController();
-  TextEditingController phone_no = TextEditingController();
-  TextEditingController drug_effect = TextEditingController();
+  TextEditingController patientAddress = TextEditingController();
+  TextEditingController phoneNo = TextEditingController();
+  TextEditingController drugEffect = TextEditingController();
   TextEditingController note = TextEditingController();
   TextEditingController date = TextEditingController();
   TextEditingController time = TextEditingController();
-  TextEditingController payment_status = TextEditingController();
+  TextEditingController paymentStatus = TextEditingController();
 
-  TextEditingController _Offer = TextEditingController();
+  TextEditingController offer = TextEditingController();
 
   String reportImage = "";
   String reportImage1 = "";
   String reportImage2 = "";
-  File? _Proimage;
-  File? _Proimage1;
-  File? _Proimage2;
+  File? proImage;
+  File? proImage1;
+  File? proImage2;
 
   List timelist = [];
 
@@ -95,26 +93,26 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
   DateTime? _firstTimeSelected;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  final GlobalKey<FormState> _Step1 = GlobalKey<FormState>();
-  final GlobalKey<FormState> _Step2 = GlobalKey<FormState>();
+  final GlobalKey<FormState> step1 = GlobalKey<FormState>();
+  final GlobalKey<FormState> step2 = GlobalKey<FormState>();
 
   final GlobalKey<FormState> _offerFormKey = GlobalKey<FormState>();
 
   List<String> AppointmentFor = [];
-  String? Select_Appointmentfor;
+  String? selectAppointmentfor;
 
-  List<String> Drugeffects = [];
-  String? Select_Drugeffects;
+  List<String> drugeEfects = [];
+  String? selectDrugeffects;
 
   int? id = 0;
-  String New_Date = "";
-  String New_Dateuser = "";
+  String newDate = "";
+  String newDateuser = "";
 
-  String pass_BookDate = "";
-  String pass_BookTime = "";
-  String pass_BookID = "";
+  String passBookDate = "";
+  String passBookTime = "";
+  String passBookID = "";
 
-  String? Booking_Id = "";
+  String? bookingId = "";
 
   //Discount //
   String discountType = "";
@@ -133,12 +131,12 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(
       () {
-        pass_BookDate = '$New_Dateuser';
-        pass_BookTime = '$selectTime';
-        pass_BookID = '$Booking_Id';
-        prefs.setString('BookDate', pass_BookDate);
-        prefs.setString('BookTime', pass_BookTime);
-        prefs.setString('BookID', pass_BookID);
+        passBookDate = '$newDateuser';
+        passBookTime = '$selectTime';
+        passBookID = '$bookingId';
+        prefs.setString('BookDate', passBookDate);
+        prefs.setString('BookTime', passBookTime);
+        prefs.setString('BookID', passBookID);
       },
     );
   }
@@ -151,12 +149,12 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
 
     Future.delayed(Duration.zero, () {
       AppointmentFor = ["My Self".toString(), "Patient".toString()];
-      Drugeffects = ["Yes".toString(), "No".toString()];
+      drugeEfects = ["Yes".toString(), "No".toString()];
     });
 
     var temp = '$_firstTimeSelected';
 
-    date.text = New_Dateuser;
+    date.text = newDateuser;
   }
 
   setSelectedRadio(int val) {
@@ -362,7 +360,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                           "Patient /\n MySelf".toString(),
                         ),
                         content: Form(
-                          key: _Step1,
+                          key: step1,
                           child: SingleChildScrollView(
                             child: Container(
                               child: Column(
@@ -392,18 +390,18 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                         color: grey,
                                       ),
                                     ),
-                                    value: Select_Appointmentfor,
+                                    value: selectAppointmentfor,
                                     isExpanded: true,
                                     iconSize: 30,
                                     onSaved: (dynamic value) {
                                       setState(() {
-                                        Select_Appointmentfor = value;
+                                        selectAppointmentfor = value;
                                       });
                                     },
                                     onChanged: (dynamic newValue) {
                                       setState(
                                         () {
-                                          Select_Appointmentfor = newValue;
+                                          selectAppointmentfor = newValue;
                                         },
                                       );
                                     },
@@ -440,7 +438,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                   TextFormField(
                                     textCapitalization:
                                         TextCapitalization.words,
-                                    controller: patient_name,
+                                    controller: patientName,
                                     keyboardType: TextInputType.text,
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
@@ -492,7 +490,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                   TextFormField(
                                     textCapitalization:
                                         TextCapitalization.words,
-                                    controller: illness_information,
+                                    controller: illnessInformation,
                                     keyboardType: TextInputType.text,
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
@@ -583,7 +581,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                   TextFormField(
                                     textCapitalization:
                                         TextCapitalization.sentences,
-                                    controller: patient_address,
+                                    controller: patientAddress,
                                     keyboardType: TextInputType.text,
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
@@ -628,7 +626,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                     ),
                                   ),
                                   TextFormField(
-                                    controller: phone_no,
+                                    controller: phoneNo,
                                     keyboardType: TextInputType.number,
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
@@ -684,18 +682,18 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                         color: grey,
                                       ),
                                     ),
-                                    value: Select_Drugeffects,
+                                    value: selectDrugeffects,
                                     isExpanded: true,
                                     iconSize: 30,
                                     onSaved: (dynamic value) {
                                       setState(() {
-                                        Select_Drugeffects = value;
+                                        selectDrugeffects = value;
                                       });
                                     },
                                     onChanged: (dynamic newValue) {
                                       setState(
                                         () {
-                                          Select_Drugeffects = newValue;
+                                          selectDrugeffects = newValue;
                                         },
                                       );
                                     },
@@ -703,7 +701,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                         ? "Please select drug any effect"
                                             .toString()
                                         : null,
-                                    items: Drugeffects.map((location) {
+                                    items: drugeEfects.map((location) {
                                       return DropdownMenuItem<String>(
                                         child: new Text(
                                           location,
@@ -800,13 +798,13 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               5)),
-                                                  child: _Proimage != null
+                                                  child: proImage != null
                                                       ? GestureDetector(
                                                           onTap: () {
                                                             // _ChooseProfileImage();
                                                           },
                                                           child: Image.file(
-                                                            _Proimage!,
+                                                            proImage!,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         )
@@ -870,13 +868,13 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               5)),
-                                                  child: _Proimage1 != null
+                                                  child: proImage1 != null
                                                       ? GestureDetector(
                                                           onTap: () {
                                                             // _ChooseProfileImage1();
                                                           },
                                                           child: Image.file(
-                                                            _Proimage1!,
+                                                            proImage1!,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         )
@@ -940,13 +938,13 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               5)),
-                                                  child: _Proimage2 != null
+                                                  child: proImage2 != null
                                                       ? GestureDetector(
                                                           onTap: () {
                                                             // _ChooseProfileImage2();
                                                           },
                                                           child: Image.file(
-                                                            _Proimage2!,
+                                                            proImage2!,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         )
@@ -1011,7 +1009,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                           "Date &\n Time".toString(),
                         ),
                         content: Form(
-                          key: _Step2,
+                          key: step2,
                           child: Container(
                             child: Column(
                               children: [
@@ -1217,7 +1215,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: TextFormField(
-                                            controller: _Offer,
+                                            controller: offer,
                                             keyboardType: TextInputType.text,
                                             textCapitalization:
                                                 TextCapitalization.words,
@@ -1729,7 +1727,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
             onPressed: () {
               setState(
                 () {
-                  if (_currentStep == 0 && _Step1.currentState!.validate()) {
+                  if (_currentStep == 0 && step1.currentState!.validate()) {
                     continued();
                   } else if (_currentStep == 1 &&
                       date != null &&
@@ -1740,7 +1738,6 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                   } else if (_currentStep == 2) {
                     str = "$_character";
                     parts = str.split(".");
-                    start_part = parts[0].trim();
                     paymenttype = parts.sublist(1).join('.').trim();
                     continued();
                     if (_character!.index == 0) {

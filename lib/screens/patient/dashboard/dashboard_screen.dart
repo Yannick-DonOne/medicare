@@ -69,7 +69,7 @@ class _PatientDashBoardScreenState extends State<PatientDashBoardScreen> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (BuildContext context) =>
-                          PatientAppointmentList(),
+                          PatientAppointments(),
                     ),
                   );
                 },
