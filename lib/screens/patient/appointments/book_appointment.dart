@@ -182,7 +182,7 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
       },
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size(width * 0.3, size.height * 0.2),
+          preferredSize: Size(width * 0.3, size.height * 0.215),
           child: SafeArea(
             top: true,
             child: Column(
