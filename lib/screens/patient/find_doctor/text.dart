@@ -10,7 +10,6 @@ List<String> specialistList = [
   'General Surgery',
   'Hematology',
   'Nephrology',
-  'Nephrology',
   'Neurosurgery',
   'Obstetrics/Gynecology',
   'Ophthalmology'

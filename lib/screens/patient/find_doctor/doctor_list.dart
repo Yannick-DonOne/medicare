@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/screens/patient/home/doctor_details/doctor_details.dart';
 import 'package:medicare/utils/theme/theme.dart';
+import 'package:medicare/utils/widgets/custom_button.dart';
 
 class DoctorList extends StatelessWidget {
   static String id = 'doctor_list';
@@ -21,517 +22,114 @@ class DoctorList extends StatelessWidget {
       backgroundColor: bgColorScreen,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListView(
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(
-                    vertical: size.width * 0.02,
-                    horizontal: size.width * 0.025),
-                margin: EdgeInsets.only(
-                  bottom: 10.0,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      spreadRadius: 1.0,
-                      blurRadius: 6.0,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundColor: Color(0xFFD9D9D9),
-                          backgroundImage: NetworkImage(userImage),
-                          radius: 36.0,
+            padding: const EdgeInsets.all(8.0),
+            child: ListView.builder(
+              itemCount: 6,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                  margin: EdgeInsets.only(
+                    bottom: 5.0,
+                  ),
+                  decoration: BoxDecoration(
+                      color: whiteColor,
+                      borderRadius: BorderRadius.circular(12.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 1.0,
+                          blurRadius: 6.0,
                         ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Column(
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        width: size.width * 0.83,
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                text: 'Wellness\n',
-                                style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.3,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: 'Dr Ayor Kruger',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '\nPoplar Pharma Limited',
-                                    style: TextStyle(
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text:
-                                        '\nDermatologist \nSAn Franscisco CA | 5 min',
-                                    style: TextStyle(
-                                      color: Colors.black38,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            CircleAvatar(
+                              backgroundColor: Color(0xFFD9D9D9),
+                              backgroundImage: AssetImage(userImage),
+                              radius: size.width * 0.1,
                             ),
                             SizedBox(
-                              height: 6.0,
+                              width: 10.0,
                             ),
-                            RaisedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        PatientDoctorDetails(''),
-                                  ),
-                                );
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(80.0)),
-                              padding: const EdgeInsets.all(0.0),
-                              child: Ink(
-                                decoration: const BoxDecoration(
-                                  // gradient: CustomTheme.primaryGradient,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(80.0)),
-                                ),
-                                child: Container(
-                                  constraints: const BoxConstraints(
-                                      minWidth: 88.0,
-                                      minHeight:
-                                          36.0), // min sizes for Material buttons
-                                  alignment: Alignment.center,
-                                  child: const Text(
-                                    'View',
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Wellness\n',
                                     style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 13,
-                                      color: Colors.white,
+                                      color: Colors.purple,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      height: 1.3,
                                     ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: 'Dr Ayor Kruger',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '\nPoplar Pharma Limited',
+                                        style: TextStyle(
+                                          color: Colors.black45,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            '\nDermatologist \nSAn Franscisco CA | 5 min',
+                                        style: TextStyle(
+                                          color: Colors.black38,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ),
+                                CustomButton(
+                                  child: Text('View'),
+                                  gradient: CustomTheme.buttonGradient,
+                                  onPressed: () {
+                                    // TODO: navigate to doctor detail screen pass doctor info
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            PatientDoctorDetails(''),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                    Icon(
-                      Icons.medical_services, // TODO use heart icon here
-                      color: whiteColor,
-                      size: 36,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                    vertical: size.width * 0.02,
-                    horizontal: size.width * 0.025),
-                margin: EdgeInsets.only(
-                  bottom: 10.0,
-                ),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.4),
-                        spreadRadius: 1.0,
-                        blurRadius: 6.0,
                       ),
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundColor: Color(0xFFD9D9D9),
-                          backgroundImage: NetworkImage(userImage),
-                          radius: 36.0,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                text: 'Wellness\n',
-                                style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.3,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: 'Dr Ayor Kruger',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '\nPoplar Pharma Limited',
-                                    style: TextStyle(
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text:
-                                        '\nDermatologist \nSAn Franscisco CA | 5 min',
-                                    style: TextStyle(
-                                      color: Colors.black38,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 6.0,
-                            ),
-                            RaisedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        PatientDoctorDetails(''),
-                                  ),
-                                );
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(80.0)),
-                              padding: const EdgeInsets.all(0.0),
-                              child: Ink(
-                                decoration: const BoxDecoration(
-                                  // gradient: CustomTheme.primaryGradient,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(80.0)),
-                                ),
-                                child: Container(
-                                  constraints: const BoxConstraints(
-                                      minWidth: 88.0,
-                                      minHeight:
-                                          36.0), // min sizes for Material buttons
-                                  alignment: Alignment.center,
-                                  child: const Text(
-                                    'View',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 13,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Icon(
-                      Icons.medical_services, // TODO use heart icon here
-                      color: whiteColor,
-                      size: 36,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                    vertical: size.width * 0.02,
-                    horizontal: size.width * 0.025),
-                margin: EdgeInsets.only(
-                  bottom: 10.0,
-                ),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.4),
-                        spreadRadius: 1.0,
-                        blurRadius: 6.0,
+                      Icon(
+                        Icons.medical_services, // TODO use heart icon here
+                        color: primaryColor,
+                        size: 25,
                       ),
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundColor: Color(0xFFD9D9D9),
-                          backgroundImage: NetworkImage(userImage),
-                          radius: 36.0,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                text: 'Wellness\n',
-                                style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.3,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: 'Dr Ayor Kruger',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '\nPoplar Pharma Limited',
-                                    style: TextStyle(
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text:
-                                        '\nDermatologist \nSAn Franscisco CA | 5 min',
-                                    style: TextStyle(
-                                      color: Colors.black38,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 6.0,
-                            ),
-                            RaisedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        PatientDoctorDetails(''),
-                                  ),
-                                );
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(80.0)),
-                              padding: const EdgeInsets.all(0.0),
-                              child: Ink(
-                                decoration: const BoxDecoration(
-                                  // gradient: CustomTheme.primaryGradient,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(80.0)),
-                                ),
-                                child: Container(
-                                  constraints: const BoxConstraints(
-                                      minWidth: 88.0,
-                                      minHeight:
-                                          36.0), // min sizes for Material buttons
-                                  alignment: Alignment.center,
-                                  child: const Text(
-                                    'View',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 13,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Icon(
-                      Icons.medical_services, // TODO use heart icon here
-                      color: whiteColor,
-                      size: 36,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                    vertical: size.width * 0.02,
-                    horizontal: size.width * 0.025),
-                margin: EdgeInsets.only(
-                  bottom: 10.0,
-                ),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.4),
-                        spreadRadius: 1.0,
-                        blurRadius: 6.0,
-                      ),
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundColor: Color(0xFFD9D9D9),
-                          backgroundImage: NetworkImage(userImage),
-                          radius: 36.0,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                text: 'Wellness\n',
-                                style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.3,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: 'Dr Ayor Kruger',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '\nPoplar Pharma Limited',
-                                    style: TextStyle(
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text:
-                                        '\nDermatologist \nSAn Franscisco CA | 5 min',
-                                    style: TextStyle(
-                                      color: Colors.black38,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 6.0,
-                            ),
-                            RaisedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        PatientDoctorDetails(''),
-                                  ),
-                                );
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(80.0)),
-                              padding: const EdgeInsets.all(0.0),
-                              child: Ink(
-                                decoration: const BoxDecoration(
-                                  // gradient: CustomTheme.primaryGradient,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(80.0)),
-                                ),
-                                child: Container(
-                                  constraints: const BoxConstraints(
-                                      minWidth: 88.0,
-                                      minHeight:
-                                          36.0), // min sizes for Material buttons
-                                  alignment: Alignment.center,
-                                  child: const Text(
-                                    'View',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 13,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Icon(
-                      Icons.medical_services, // TODO use heart icon here
-                      color: whiteColor,
-                      size: 36,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+                    ],
+                  ),
+                );
+              },
+            )),
       ),
     );
   }
