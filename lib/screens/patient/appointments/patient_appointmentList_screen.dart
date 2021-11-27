@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medicare/core/models/Appointments.dart';
 import 'package:medicare/utils/theme/theme.dart';
 
@@ -71,12 +73,32 @@ class _PatientAppointmentsState extends State<PatientAppointments> {
     height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: bgColorScreen,
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, PatientBookappointment.id);
-          },
-          child: Icon(Icons.add),
-          backgroundColor: primaryColor),
+      floatingActionButton: SpeedDial(
+        overlayColor: Colors.black,
+        icon: Icons.add,
+        activeIcon: Icons.close,
+        children: [
+          SpeedDialChild(
+            child: Icon(
+              FontAwesomeIcons.clinicMedical,
+            ),
+            label: 'consultation',
+          ),
+          SpeedDialChild(
+            child: Icon(
+              FontAwesomeIcons.userMd,
+            ),
+            label: 'book Specialist',
+          ),
+        ],
+      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Navigator.pushNamed(context, PatientBookappointment.id);
+      //   },
+      //   child: Icon(Icons.add),
+      //   backgroundColor: primaryColor,
+      // ),
       body: DefaultTabController(
         length: 3,
         child: Scaffold(
