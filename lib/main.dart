@@ -13,6 +13,7 @@ import 'screens/general/privacy/privacy_policy.dart';
 import 'screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'screens/general/welcome/splash/splash_screen.dart';
 import 'screens/patient/appointments/book_appointment.dart';
+import 'screens/patient/appointments/patientBookSpecialist.dart';
 import 'screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
 import 'screens/patient/auth/register/patient_register_screen.dart';
@@ -63,6 +64,7 @@ class _MyAppState extends State<MyApp> {
           DoctorList.id: (context) => DoctorList(),
           PatientBookappointment.id: (context) => PatientBookappointment(),
           PatientAppointments.id: (context) => PatientAppointments(),
+          SelectSpecialist.id: (context) => SelectSpecialist(),
 
           // Doctor screens
           DoctorLoginScreen.id: (context) => DoctorLoginScreen(),
