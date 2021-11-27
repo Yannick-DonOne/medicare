@@ -100,7 +100,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
           Container(
             margin: EdgeInsets.only(left: 15, right: 15),
             padding: EdgeInsets.only(left: 20),
-            height: MediaQuery.of(context).size.height / 4,
+            height: MediaQuery.of(context).size.height / 3.5,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
