@@ -298,33 +298,38 @@ class _PatientAppointmentsState extends State<PatientAppointments> {
                                                         ),
                                                       ],
                                                     ),
-                                                    child: CachedNetworkImage(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      imageUrl:
-                                                          "", // doctor image
-                                                      imageBuilder: (context,
-                                                              imageProvider) =>
-                                                          CircleAvatar(
-                                                        radius: 50,
-                                                        backgroundColor:
-                                                            whiteColor,
-                                                        child: CircleAvatar(
-                                                          radius: 25,
-                                                          backgroundImage:
-                                                              imageProvider,
-                                                        ),
-                                                      ),
-                                                      placeholder: (context,
-                                                              url) =>
-                                                          SpinKitFadingCircle(
-                                                              color:
-                                                                  primaryColor),
-                                                      errorWidget: (context,
-                                                              url, error) =>
-                                                          Image.asset(
-                                                              "assets/images/no_image.jpg"),
+                                                    //TODO: change to cached network image
+                                                    child: Image(
+                                                      image: AssetImage(
+                                                          "assets/images/no_image.jpg"),
                                                     ),
+                                                    // CachedNetworkImage(
+                                                    //   alignment:
+                                                    //       Alignment.center,
+                                                    //   imageUrl:
+                                                    //       "", // doctor image
+                                                    //   imageBuilder: (context,
+                                                    //           imageProvider) =>
+                                                    //       CircleAvatar(
+                                                    //     radius: 50,
+                                                    //     backgroundColor:
+                                                    //         whiteColor,
+                                                    //     child: CircleAvatar(
+                                                    //       radius: 25,
+                                                    //       backgroundImage:
+                                                    //           imageProvider,
+                                                    //     ),
+                                                    //   ),
+                                                    //   placeholder: (context,
+                                                    //           url) =>
+                                                    //       SpinKitFadingCircle(
+                                                    //           color:
+                                                    //               primaryColor),
+                                                    //   errorWidget: (context,
+                                                    //           url, error) =>
+                                                    //       Image.asset(
+                                                    //           "assets/images/no_image.jpg"),
+                                                    // ),
                                                   )
                                                 ],
                                               ),
