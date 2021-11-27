@@ -1676,18 +1676,18 @@ class _PatientBookappointmentState extends State<PatientBookappointment> {
                             : StepState.disabled,
                       ),
                     ],
-                    controlsBuilder: (BuildContext context,
-                        {VoidCallback? onStepContinue,
-                        VoidCallback? onStepCancel}) {
-                      return Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          SizedBox(),
-                          SizedBox(),
-                        ],
-                      );
-                    },
+                    // controlsBuilder: (BuildContext context,
+                    //     {VoidCallback? onStepContinue,
+                    //     VoidCallback? onStepCancel}) {
+                    //   return Row(
+                    //     mainAxisSize: MainAxisSize.max,
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: <Widget>[
+                    //       SizedBox(),
+                    //       SizedBox(),
+                    //     ],
+                    //   );
+                    // },
                   ),
                 ),
               ],
