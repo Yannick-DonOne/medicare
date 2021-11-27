@@ -152,7 +152,8 @@ class _PatientAppointmentsState extends State<PatientAppointments> {
                               "Pending\nAppointment",
                               // 'Pending\nAppointment',
                               style: TextStyle(
-                                fontSize: 15,
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.w600,
                                 color: primaryColor,
                               ),
                               textAlign: TextAlign.center,
@@ -162,7 +163,8 @@ class _PatientAppointmentsState extends State<PatientAppointments> {
                             child: Text(
                               "Upcoming\nAppointment",
                               style: TextStyle(
-                                fontSize: 15,
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.w600,
                                 color: primaryColor,
                               ),
                               textAlign: TextAlign.center,
@@ -172,7 +174,8 @@ class _PatientAppointmentsState extends State<PatientAppointments> {
                             child: Text(
                               "Complete\nAppointment",
                               style: TextStyle(
-                                fontSize: 15,
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.w600,
                                 color: primaryColor,
                               ),
                               textAlign: TextAlign.center,
