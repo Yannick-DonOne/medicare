@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'package:medicare/utils/widgets/custom_button.dart';
-import 'package:medicare/utils/widgets/moods.dart';
 import 'package:medicare/utils/widgets/see_all.dart';
 
 import 'doctor_details/doctor_details.dart';
@@ -20,23 +20,22 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Container(
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: whiteColor,
+        title: Text(
+          "Summit Care".toUpperCase(),
+          style: TextStyle(
+              fontSize: 18, color: primaryColor, fontWeight: FontWeight.bold),
+        ),
+      ),
+      body: Container(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 20),
-              Stack(
-                clipBehavior: Clip.none,
-                alignment: AlignmentDirectional.topCenter,
-                children: <Widget>[
-                  _moodsHolder(context),
-                ],
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
               SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Padding(
@@ -44,7 +43,6 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      _notificationCard(),
                       _nextAppointmentText(),
                       _appoinmentCard(),
                       _areaSpecialistsText(),
@@ -76,7 +74,9 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             ),
           ),
           SeeAll(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, PatientAppointments.id);
+            },
           )
         ],
       ),
@@ -165,25 +165,6 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
     );
   }
 
-  Container _moodsHolder(context) {
-    return Container(
-      height: 65.0,
-      width: MediaQuery.of(context).size.width - 40,
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(28)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 5.5,
-              blurRadius: 5.5,
-            )
-          ]),
-      child: MoodsSelector(),
-    );
-  }
-
   Column _iconBuilder(icon, title) {
     return Column(
       children: <Widget>[
@@ -207,61 +188,14 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
     );
   }
 
-  Container _notificationCard() {
-    return Container(
-        padding: EdgeInsets.symmetric(horizontal: 8),
-        decoration: BoxDecoration(
-          color: Color(0xFFBF4954),
-          // gradient: redGradient,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(
-              Icons.calendar_today,
-              color: Colors.white,
-              size: 32,
-            ),
-            Text(
-              'Your Visit with \nDr Kyecera',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            OutlineButton(
-              onPressed: () {},
-              color: Colors.transparent,
-              borderSide: BorderSide(
-                color: Colors.white,
-                width: 1.0,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(26),
-              ),
-              child: Text(
-                'Review & Add Notes',
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 10,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ));
-  }
-
   Widget _areaSpecialistsText() {
     return Container(
-      margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+      margin: EdgeInsets.only(top: 10.0, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            'Specialist Near You',
+            'Specialists',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
@@ -281,7 +215,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       margin: EdgeInsets.only(
-        bottom: 20.0,
+        bottom: 5.0,
       ),
       decoration: BoxDecoration(
           color: whiteColor,

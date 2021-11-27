@@ -7,9 +7,14 @@ import 'screens/doctor/auth/login/doctor_login_screen.dart';
 import 'screens/doctor/chat/chats.dart';
 import 'screens/doctor/home/doctor_navigation_ui.dart';
 import 'screens/doctor/notifications/notifications_screen.dart';
+import 'screens/general/About/about_us.dart';
 import 'screens/general/option/option_screen.dart';
+import 'screens/general/privacy/privacy_policy.dart';
 import 'screens/general/welcome/onboarding/onboarding_screen.dart';
 import 'screens/general/welcome/splash/splash_screen.dart';
+import 'screens/patient/appointments/book_appointment.dart';
+import 'screens/patient/appointments/patientBookSpecialist.dart';
+import 'screens/patient/appointments/patient_appointmentList_screen.dart';
 import 'screens/patient/auth/login/patient_login_screen.dart';
 import 'screens/patient/auth/register/patient_register_screen.dart';
 import 'screens/patient/dashboard/dashboard_screen.dart';
@@ -38,15 +43,13 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         title: 'Medicare',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: "GoogleSans",
-          primarySwatch: Colors.red,
-        ),
         home: SplashScreen(),
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           OnboardingScreen.id: (context) => OnboardingScreen(),
           OptionScreen.id: (context) => OptionScreen(),
+          AboutUs.id: (context) => AboutUs(),
+          PrivacyPolicy.id: (context) => PrivacyPolicy(),
 
           // Patient screens.
           PatientLoginScreen.id: (context) => PatientLoginScreen(),
@@ -59,7 +62,9 @@ class _MyAppState extends State<MyApp> {
           PatientProfileScreen.id: (context) => PatientProfileScreen(),
           PatientSettingScreen.id: (context) => PatientSettingScreen(),
           DoctorList.id: (context) => DoctorList(),
-          // PatientDoctorDetails.id: (context) => PatientDoctorDetails(),
+          PatientBookappointment.id: (context) => PatientBookappointment(),
+          PatientAppointments.id: (context) => PatientAppointments(),
+          SelectSpecialist.id: (context) => SelectSpecialist(),
 
           // Doctor screens
           DoctorLoginScreen.id: (context) => DoctorLoginScreen(),

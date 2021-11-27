@@ -256,7 +256,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    PatientAppointmentList(),
+                                    PatientAppointments(),
                               ),
                             );
                           },
